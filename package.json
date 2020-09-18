@@ -4,7 +4,8 @@
   "description": "IMPACT - Full Stack Server designed to allow users to share and view environmentally conscious products. GA Project 2 completed by Lia and Brendan.  ",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
