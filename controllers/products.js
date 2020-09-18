@@ -1,0 +1,1 @@
+// base route is /products
