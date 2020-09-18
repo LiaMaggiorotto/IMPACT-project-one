@@ -1,0 +1,28 @@
+{
+  "name": "impact-project-one",
+  "version": "1.0.0",
+  "description": "IMPACT - Full Stack Server designed to allow users to share and view environmentally conscious products. GA Project 2 completed by Lia and Brendan.  ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/LiaMaggiorotto/IMPACT-project-one.git"
+  },
+  "author": "Lia Maggiorotto liamaggiorotto@gmail.com; Brendan Bliss brendantbliss@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LiaMaggiorotto/IMPACT-project-one/issues"
+  },
+  "homepage": "https://github.com/LiaMaggiorotto/IMPACT-project-one#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^3.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.10.6"
+  }
+}
