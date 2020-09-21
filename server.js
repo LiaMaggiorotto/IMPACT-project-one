@@ -38,7 +38,13 @@ app.use(session({
       maxAge: 1000 * 60 * 60 * 24 * 7 * 2 
     }
   }));
-  
+ 
+const authRequired = function(req, res, next) {
+  if(!req.session.currentUser) {
+    return res.redirect("/login");
+  }
+  next();
+}
 
 
 // --------------------- Routes
