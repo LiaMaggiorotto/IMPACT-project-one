@@ -44,7 +44,7 @@ app.use(session({
 // --------------------- Routes
 
 
-// view
+// view, home page
 app.get("/home", function (req, res)  {
     res.render("index");
 });

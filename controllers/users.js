@@ -6,22 +6,22 @@ const db = require("../models");
 
 
 // index view
-router.get("/", async function (req, res) {
-    try {
-        const foundUsers = await db.User.find({});
-        const context = {
-        Users: foundUsers,
-        }
-        res.render("user/index", context);
-        } catch (error) {
-        console.log (error);
-        res.send( { message: "Internal Server Error" });
-        }
-});
+// router.get("/", async function (req, res) {
+//     try {
+//         const foundUsers = await db.User.find({});
+//         const context = {
+//         Users: foundUsers,
+//         }
+//         res.render("user/index", context);
+//         } catch (error) {
+//         console.log (error);
+//         res.send( { message: "Internal Server Error" });
+//         }
+// });
 
-// new
+// new, this is to view register/login page
 router.get("/new", function (req, res) {
-    res.render("user/new");
+    res.render("users/login");
     });
 
 // create
@@ -35,7 +35,7 @@ router.post("/", function (req, res) {
     });
 });
 
-// show
+// show, individual user profile page
 router.get("/:id", function (req, res) {
     db.User.findById(req.params.id)
     .populate("users")
@@ -49,7 +49,7 @@ router.get("/:id", function (req, res) {
     });
 });
 
-// edit <- view
+// edit <- view, edit individual user profile page
 router.get("/:id/edit", function (req, res) {
     db.User.findById(req.params.id, function (err, foundUser) {
     if (err) {
