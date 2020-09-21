@@ -5,7 +5,26 @@ const router = express.Router();
 const db = require("../models");
 
 
-// index view, product list
+// Cruelty Free Landing Page View Route
+router.get("/crueltyfree", (req, res) => {
+    res.render("products/cruelty_free/landing");
+});
+
+// Plastic Consumption Landing Page View Route
+router.get("/plastic", (req, res) => {
+    res.render("products/plastic_consumption/landing");
+});
+
+
+// Carbon Emmissions Landing Page View Route
+router.get("/plastic", (req, res) => {
+    res.render("products/carbon_emissions/landing");
+});
+
+
+
+
+// index view, product list 
 router.get("/", async function (req, res) {
     try {
         const foundProducts = await db.Product.find({});
@@ -19,10 +38,16 @@ router.get("/", async function (req, res) {
         }
 });
 
+
+
+
+
 // new
 router.get("/new", function (req, res) {
     res.render("product/new");
     });
+
+
 
 // create
 router.post("/", function (req, res) {
@@ -35,10 +60,13 @@ router.post("/", function (req, res) {
     db.User.findById(req.body.user, function (err, foundUser) {
         foundUser.products.push(createdProduct);
         foundUser.save()
-        res.redirect("/products");
+        res.redirect("/user/:id");
     })
     });
 });
+
+
+
 
 // show
 router.get("/:id", function (req, res) {
