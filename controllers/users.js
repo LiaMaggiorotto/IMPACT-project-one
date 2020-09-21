@@ -19,8 +19,8 @@ const db = require("../models");
 //         }
 // });
 
-// new, this is to view register/login page
-router.get("/new", function (req, res) {
+// view register/login page
+router.get("/login", function (req, res) {
     res.render("users/login");
     });
 
@@ -38,14 +38,14 @@ router.post("/", function (req, res) {
 // show, individual user profile page
 router.get("/:id", function (req, res) {
     db.User.findById(req.params.id)
-    .populate("users")
+    .populate("products")
     .exec(function (err, foundUser) {
         if (err) {
         console.log(err);
         return res.send(err);
         }
         const context = { user: foundUser };
-        res.render("user/show", context);
+        res.render("user/profile", context);
     });
 });
 
