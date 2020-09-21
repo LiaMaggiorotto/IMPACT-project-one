@@ -45,7 +45,7 @@ router.get("/:id", function (req, res) {
         return res.send(err);
         }
         const context = { user: foundUser };
-        res.render("user/profile", context);
+        res.render("users/profile", context);
     });
 });
 
@@ -57,11 +57,11 @@ router.get("/:id/edit", function (req, res) {
         return res.send(err);
     }
     const context = { user: foundUser };
-    res.render("user/edit", context);
+    res.render("users/edit", context);
     });
 });
 
-// update <- db change
+// update <- db change to user profile
 router.put("/:id", function (req, res) {
     db.User.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (
     err,
@@ -76,7 +76,7 @@ router.put("/:id", function (req, res) {
     });
 });
 
-  // delete
+  // delete <- delete profile route
 router.delete("/:id", function (req, res) {
     db.User.findByIdAndDelete(req.params.id, function (err, deletedUser) {
     if (err) {
@@ -92,7 +92,7 @@ router.delete("/:id", function (req, res) {
         console.log(err);
         return res.send(err);
         }
-        res.redirect("/users");
+        res.redirect("/home");
     });
     });
 });

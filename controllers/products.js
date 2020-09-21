@@ -26,12 +26,17 @@ router.get("/new", function (req, res) {
 
 // create
 router.post("/", function (req, res) {
+    req.body.user = req.session.currentUser._id;
     db.Product.create(req.body, function (err, createdProduct) {
     if (err) {
         console.log(err);
         return res.send(err);
     } 
-    res.redirect("/products");
+    db.User.findById(req.body.user, function (err, foundUser) {
+        foundUser.products.push(createdProduct);
+        foundUser.save()
+        res.redirect("/products");
+    })
     });
 });
 
