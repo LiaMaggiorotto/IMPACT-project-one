@@ -1,5 +1,6 @@
 // --------------------- External Modules
 const express = require("express");
+const path = require('path');
 const methodOverride = require("method-override");
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
@@ -18,8 +19,14 @@ const PORT = 4000;
 app.set("view engine", "ejs");
 
 // --------------------- Middleware
+// app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.originalUrl}`);
+    next();
+})
+
 app.use(session({
   resave: false,
   saveUninitialized: false, 
