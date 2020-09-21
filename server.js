@@ -50,10 +50,10 @@ app.get("/home", function (req, res)  {
 });
 
 // User Route
-// app.use("/users", controllers.users);
+app.use("/user", controllers.user);
 
 // Product Route
-// app.use("/products", controllers.products);
+app.use("/products", controllers.product);
 
 
 // --------------------- Server Listener
