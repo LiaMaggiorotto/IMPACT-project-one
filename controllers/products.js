@@ -5,14 +5,14 @@ const router = express.Router();
 const db = require("../models");
 
 
-// index view
+// index view, product list
 router.get("/", async function (req, res) {
     try {
         const foundProducts = await db.Product.find({});
         const context = {
         products: foundProducts,
         }
-        res.render("prducts/index", context);
+        res.render("products/index", context);
         } catch (error) {
         console.log (error);
         res.send( { message: "Internal Server Error" });
