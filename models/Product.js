@@ -7,11 +7,12 @@ const productSchema = new mongoose.Schema(
     imageLink: { type: String },
     productLink: { type: String, required: true},
     description: { type: String },
-    category: { type: mongoose.Schema.Types.ObjectId, ref: "User",  required: true},
+    category: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true},
   },
   {
     timestamps: true
   } 
 );
 const Product = mongoose.model("Product", productSchema);
+
 module.exports = Product;
