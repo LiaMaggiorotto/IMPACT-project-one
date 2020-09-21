@@ -5,9 +5,12 @@ const userSchema = new mongoose.Schema({
     location: {type: String, required: true },
     passions: { type: String },
     email: { type: String, required: true },
-}, {timestamps: true });
+},
+{
+  timestamps: true
+} 
+);
 
 const User = mongoose.model("User", userSchema);
 
-module.export = User;
-
+module.exports = User;

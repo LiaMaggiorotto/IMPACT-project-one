@@ -8,8 +8,10 @@ const db = require("../models")
 //  ------------ index route
 
 
-//  ------------ new route 
-
+//  ------------ new user route // view route for signup/login
+router.get("/login", (req, res) => {
+    res.render("/user/login");
+});
 
 //  ------------ create route
 
