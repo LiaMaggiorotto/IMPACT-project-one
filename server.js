@@ -10,7 +10,6 @@ const db = require("./models");
 const controllers = require("./controllers");
 
 
-
 // --------------------- Instanced Modules
 const app = express();
 
@@ -29,22 +28,24 @@ app.use((req, res, next) => {
 })
 
 app.use(session({
-    resave: false,
-    saveUninitialized: false, 
-    secret: "Trassssshhhhhh", 
-    store: new MongoStore({
-      url: "mongodb://localhost:27017/impact-sessions"
+  resave: false,
+  saveUninitialized: false, 
+  secret: "Trassshhh", 
+  store: new MongoStore({
+    url: "mongodb://localhost:27017/impact-sessions",
     }),
     cookie: {
-      maxAge: 1000 * 60 * 60 * 24 *7 * 2 
+      maxAge: 1000 * 60 * 60 * 24 * 7 * 2 
     }
   }));
+  
 
 
 // --------------------- Routes
 
+
 // view
-app.get("/home", (req, res) => {
+app.get("/home", function (req, res)  {
     res.render("index");
 });
 

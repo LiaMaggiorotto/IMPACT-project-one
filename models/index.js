@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const connectionString = "mongodb://localhost:27017/impact";
 
-mongoose.connect(connectionString, {
+mongoose
+  .connect(connectionString, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -20,6 +21,6 @@ mongoose.connection.on("disconnect", function (event) {
 });
 
 module.exports = {
-    Product: require("./Product"),
-    User: require("./User")
+  Product: require("./Product"),
+  User: require("./User"),
 };

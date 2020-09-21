@@ -1,5 +1,4 @@
 // base route is /products
-// base route is /products
 const express = require("express");
 const router = express.Router();
 
