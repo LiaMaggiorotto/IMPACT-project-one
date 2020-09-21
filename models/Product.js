@@ -7,11 +7,7 @@ const productSchema = new mongoose.Schema(
     imageLink: { type: String },
     productLink: { type: String, required: true, unique: true },
     description: { type: String },
-<<<<<<< HEAD
-    category: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true},
-=======
     category: { type: mongoose.Schema.Types.ObjectId, ref: "User",  required: true}, // unsure on if this should ref: User.
->>>>>>> submaster
   },
   {
     timestamps: true
