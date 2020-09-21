@@ -8,10 +8,7 @@ const MongoStore = require('connect-mongo')(session);
 // --------------------- Internal Modules
 const db = require("./models");
 const controllers = require("./controllers");
-<<<<<<< HEAD
 
-=======
->>>>>>> 3de42cede7030a63ea8e2d4255339e0065778da2
 
 
 // --------------------- Instanced Modules
