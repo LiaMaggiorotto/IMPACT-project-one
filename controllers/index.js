@@ -1,4 +1,6 @@
+// base route is /home
 module.exports = {
-    users: require("./users"),
-  };
-  
+    user: require("./users"),
+    product: require("./products"),
+};
+
