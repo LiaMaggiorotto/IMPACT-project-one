@@ -55,6 +55,12 @@ app.get("/home", function (req, res)  {
     res.render("index", { user: req.session.currentUser });
 });
 
+// About Routes
+
+app.get("/about", (req, res) => {
+  res.render("about")
+  });
+
 // Auth Routes
 
 app.use("/auth", controllers.auth);
