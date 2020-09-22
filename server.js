@@ -55,8 +55,12 @@ app.get("/home", function (req, res)  {
     res.render("index");
 });
 
+// Auth Routes
+
+app.use("/auth", controllers.auth);
+
 // User Route
-app.use("/user", controllers.user);
+app.use("/user", authRequired, controllers.user);
 
 // Product Route
 app.use("/products", controllers.product);
