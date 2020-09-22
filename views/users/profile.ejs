@@ -5,7 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMPACT | Profile</title>
 </head>
-<body>
-    <h1>User Profile View Page</h1>
+<body class="userProfile">
+    <div class="nav">
+
+    </div>
+
+    <img src="<%= foundUser.imageLink %>" id="profilePicture" alt="User Profile Picture">
+    <div class="profileDetails">
+        Name: <%= foundUser.username %> <br>
+        Location: <%= foundUser.location %><br>
+        Passions: <%= foundUser.passions %><br>
+        Member Since: <%= foundUser.createdAt %><br>
+        <% if(logged === true && foundUser._id.toString() === sessionID.toString()) { %>
+            <a href="/user/<%= foundUser._id %>/edit">Edit Profile</a>
+        <% } %>
+    </div>
+    <div class="userContributions">
+        <h4><%= foundUser.username %>'s Contributions</h4>
+        <% foundUser.products.forEach(product => { %>
+            <li>
+                <a href="<%= product.productLink %>"><%= product.title %></a>
+            </li>
+       <% }) %>
+    </div>
 </body>
 </html>
