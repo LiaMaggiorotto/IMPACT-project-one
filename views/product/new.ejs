@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Product</title>
 </head>
-<body>
+<body class="newProduct">
+        <div class="nav">
+    
+        </div>
     <h1>Add a New Product</h1>
+    <div class="newProductForm">
+        <form action="/products" method="POST">
+            Product Title: <input type="text" name="title" placeholder="title"><br>
+            Price: <input type="number" name="price" placeholder="0.00">
+            Image Link: <input type="url" name="imageLink"><br>
+            Product Link: <input type="url" name="productLink"><br>
+            Description: <input type="text" name="description"><br>
+            Category: <br>
+        <input type="submit" value="Submit New Product">
+        </form>
+    </div>
 </body>
 </html>
