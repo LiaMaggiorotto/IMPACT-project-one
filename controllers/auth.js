@@ -6,15 +6,11 @@ const bcrypt = require("bcryptjs");
 
 
 
-// // register form
-// router.get("/register", function(req, res) {
-//     res.render("login");
-// });
-
-// login form
-router.get("/login", function(req, res) {
+// register form
+router.get("/register", function(req, res) {
     res.render("login");
 });
+
 
 // register post
 router.post("/register", async function(req, res) {
@@ -33,6 +29,13 @@ router.post("/register", async function(req, res) {
         res.send({ message: "Internal Server Error", err: error });
     }
 });
+
+
+// login form
+router.get("/login", function(req, res) {
+    res.render("login");
+});
+
 
 
 router.post("/login", async function(req, res) {
