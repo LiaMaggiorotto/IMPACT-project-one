@@ -12,7 +12,7 @@ router.get("/register", function(req, res) {
 });
 
 // register post
-router.post("/login", async function(req, res) {
+router.post("/register", async function(req, res) {
     console.log("form data:", req.body);
     try {
         const foundUser = await db.User.findOne({ email: req.body.email });
@@ -35,6 +35,7 @@ router.get("/login", function(req, res) {
 });
 
 router.post("/login", async function(req, res) {
+    console.log("form data:", req.body);
     try {
         const foundUser = await db.User.findOne({ email: req.body.email });
         if(!foundUser) {
