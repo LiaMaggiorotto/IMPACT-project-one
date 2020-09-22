@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPACT | Login</title>
+</head>
+<body class="login">
+    <div class="nav">
+
+    </div>
+    <div class="loginBox">
+        <div class="registarBoxLeft">
+            <h1>Register</h1>
+            <form action="/auth/login" method="POST">
+            Username
+            <input type="text" name="username" placeholder="Enter Username">
+            Email
+            <input type="email" name="email" placeholder="Enter Email">
+            Password
+            <input type="text" name="password" placeholder="Create Password">
+            <button type="submit">Register</button>
+        </form>
+        </div>
+
+        <div class="loginBoxRight">
+            <h1>Login</h1>
+            <form action="/auth/login" method="POST">
+            Email
+            <input type="email" name="email" placeholder="Enter Email">
+            Password
+            <input type="text" name="password" placeholder="Enter Password">
+            <button type="submit">Login</button>
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>
