@@ -24,16 +24,18 @@ router.get("/login", function (req, res) {
     res.render("users/login");
     });
 
-// create
-router.post("/", function (req, res) {
-    db.User.create(req.body, function (err, createdUser) {
-    if (err) {
-        console.log(err);
-        return res.send(err);
-    } 
-    res.redirect("/users");
-    });
-});
+
+
+// // create -- this will be moved to Auth I believe
+// router.post("/", function (req, res) {
+//     db.User.create(req.body, function (err, createdUser) {
+//     if (err) {
+//         console.log(err);
+//         return res.send(err);
+//     } 
+//     res.redirect("/users");
+//     });
+// });
 
 // show, individual user profile page
 router.get("/:id", function (req, res) {

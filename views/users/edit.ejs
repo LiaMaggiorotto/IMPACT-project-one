@@ -5,7 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMPACT | Edit Profile</title>
 </head>
-<body>
-    <h1>Edit Profile View Page</h1>
+<body class="userEdit">
+    <div class="nav">
+
+    </div>
+    <h1>Edit Your Profile</h1>
+    <img src="<%= foundUser.imageLink %>" alt="User Profile Picture">
+    <h2> <%= foundUser.username %> </h2>
+
+    <form action="/user/<%= foundUser._id %>?_method=PUT" method="POST">
+        Upload New Profile Picture: <input type="url" name="imageLink" value="<%= foundUser.imageLink %>"> <br>
+        Username: <input type="text" name="username" value="<%= foundUser.username %>"><br>
+        Location: <input type="text" name="location" value="<%= foundUser.location %>"><br>
+        Passions: <input type="text" name="passions" value="<%= foundUser.passions %>"><br>
+    </form>
 </body>
 </html>
