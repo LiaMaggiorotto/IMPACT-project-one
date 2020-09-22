@@ -1,15 +1,15 @@
 // base route is /auth
 const express = require("express");
 const router = express.Router();
-const db = require("../models/User");
+const db = require("../models");
 const bcrypt = require("bcryptjs");
 
 
 
-// // register form
-// router.get("/register", function(req, res) {
-//     res.render("login");
-// });
+// register form
+router.get("/register", function(req, res) {
+    res.render("login");
+});
 
 // login form
 router.get("/login", function(req, res) {
@@ -27,9 +27,14 @@ router.post("/register", async function(req, res) {
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(req.body.password, salt);
         req.body.password = hash;
-        await db.User.create(req.body);
-        res.redirect("users/profile");
+        const createdUser = await db.User.create(req.body);
+        req.session.currentUser = {
+            username: createdUser.username,
+            id: createdUser._id,
+        }
+        res.redirect(`/users/${createdUser._id}/edit`);
     } catch (error) {
+        console.log(error);
         res.send({ message: "Internal Server Error", err: error });
     }
 });
