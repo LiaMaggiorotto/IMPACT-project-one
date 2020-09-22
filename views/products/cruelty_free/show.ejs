@@ -6,6 +6,28 @@
     <title>Cruelty Free Products</title>
 </head>
 <body>
+    <div class="navhome">
+        <a href="/">HOME</a>
+    </div>
+    <div class="navlogin">
+        <% if (!user) { %>
+            <a href="/auth/login">LOGIN/REGISTER</a>
+        <% } else { %>
+        <form action="/auth/logout?_method=DELETE" method="POST"><input type="submit" value="Logout"></form>
+        <% } %>
+    </div>
+    <div class="navdropdown">
+            <select onChange="window.location.href=this.value">
+                <option selected="selected">Choose an option</option>
+                <option value="/products/crueltyfree">Cruelty Free</option>
+                <option value="/products/plastic">Plastic Consumption</option>
+                <option value="/products/carbon">Carbon Emissions</option>
+                <option value="/products/new">Share A New Product</option>
+                <% if (user) {%>
+                <option value="/users/profile">Your Profile</a>
+                <% } %>
+            </select>
+    </div>
     <h1>This is the Cruelty Free Products Index Page</h1>
 </body>
 </html>

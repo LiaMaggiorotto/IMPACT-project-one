@@ -7,18 +7,18 @@ const db = require("../models");
 
 // Cruelty Free Landing Page View Route
 router.get("/crueltyfree", (req, res) => {
-    res.render("products/cruelty_free/landing");
+    res.render("products/cruelty_free/landing", { user: req.session.currentUser });
 });
 
 // Plastic Consumption Landing Page View Route
 router.get("/plastic", (req, res) => {
-    res.render("products/plastic_consumption/landing");
+    res.render("products/plastic_consumption/landing", { user: req.session.currentUser });
 });
 
 
 // Carbon Emmissions Landing Page View Route
 router.get("/carbon", (req, res) => {
-    res.render("products/carbon_emissions/landing");
+    res.render("products/carbon_emissions/landing", { user: req.session.currentUser });
 });
 
 
@@ -44,7 +44,7 @@ router.get("/", async function (req, res) {
 
 // new
 router.get("/new", function (req, res) {
-    res.render("products/new");
+    res.render("products/new", { user: req.session.currentUser });
     });
 
 
