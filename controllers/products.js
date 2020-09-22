@@ -17,7 +17,7 @@ router.get("/plastic", (req, res) => {
 
 
 // Carbon Emmissions Landing Page View Route
-router.get("/plastic", (req, res) => {
+router.get("/carbon", (req, res) => {
     res.render("products/carbon_emissions/landing");
 });
 
