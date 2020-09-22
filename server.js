@@ -52,11 +52,7 @@ const authRequired = function(req, res, next) {
 
 // view, home page
 app.get("/home", function (req, res)  {
-<<<<<<< HEAD
-  res.render("index", { user: req.session.currentUser });
-=======
     res.render("index", { user: req.session.currentUser });
->>>>>>> submaster
 });
 
 // Auth Routes
