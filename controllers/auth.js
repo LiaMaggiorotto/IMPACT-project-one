@@ -8,12 +8,12 @@ const bcrypt = require("bcryptjs");
 
 // register form
 router.get("/register", function(req, res) {
-    res.render("login");
+    res.render("login", { user: req.session.currentUser });
 });
 
 // login form
 router.get("/login", function(req, res) {
-    res.render("login");
+    res.render("login", { user: req.session.currentUser });
 });
 
 // register post
@@ -55,7 +55,7 @@ router.post("/login", async function(req, res) {
             username: foundUser.username,
             id: foundUser._id,
         }
-        res.redirect("/home")
+        res.redirect("/")
     } catch (error) {
         res.send({ message: "Internal Server Error", err: error });
     }
@@ -64,7 +64,7 @@ router.post("/login", async function(req, res) {
 // logout delete 
 router.delete("/logout", async function(req, res) {
     await req.session.destroy();
-    res.redirect("/home");
+    res.redirect("/");
 })
 
 

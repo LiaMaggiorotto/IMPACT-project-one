@@ -6,13 +6,17 @@
     <title>IMPACT | Home</title>
 </head>
 <body class="home">
-    <div class="nav">
-        <a href="/home">HOME</a>
-        <% if (!user) { %>
-            <a href="/auth/login">LOGIN/REGISTER</a>
+    <div class="navhome">
+        <a href="/">HOME</a>
+    </div>
+    <div class="navlogin">
+        <% if (user) { %>
+            <form action="/auth/logout?_method=DELETE" method="POST"><input type="submit" value="Logout"></form>
         <% } else { %>
-        <form action="/auth/logout?_method=DELETE" method="POST"><input type="submit" value="Logout"></form>
+            <a href="/auth/login">LOGIN/REGISTER</a>
         <% } %>
+    </div>
+    <div class="navdropdown">
             <select onChange="window.location.href=this.value">
                 <option selected="selected">Choose an option</option>
                 <option value="/products/crueltyfree">Cruelty Free</option>
@@ -22,8 +26,8 @@
                 <% if (user) {%>
                 <option value="/users/profile">Your Profile</a>
                 <% } %>
-
             </select>
+    </div>
             </div>
         </div>
         

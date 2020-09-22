@@ -51,14 +51,14 @@ const authRequired = function(req, res, next) {
 
 
 // view, home page
-app.get("/home", function (req, res)  {
+app.get("/", function (req, res)  {
     res.render("index", { user: req.session.currentUser });
 });
 
 // About Routes
 
 app.get("/about", (req, res) => {
-  res.render("about")
+  res.render("about", { user: req.session.currentUser });
   });
 
 // Auth Routes

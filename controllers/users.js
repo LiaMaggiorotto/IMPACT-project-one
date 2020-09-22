@@ -21,7 +21,7 @@ const db = require("../models");
 
 // view register/login page
 router.get("/login", function (req, res) {
-    res.render("users/login");
+    res.render("users/login", { user: req.session.currentUser });
     });
 
 // // create
@@ -57,7 +57,7 @@ router.get("/:id/edit", function (req, res) {
         return res.send(err);
     }
     const context = { foundUser: foundUser };
-    res.render("users/edit", context);
+    res.render("users/edit", context, { user: req.session.currentUser });
     });
 });
 
@@ -92,7 +92,7 @@ router.delete("/:id", function (req, res) {
         console.log(err);
         return res.send(err);
         }
-        res.redirect("/home");
+        res.redirect("/");
     });
     });
 });
