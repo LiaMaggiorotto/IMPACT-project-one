@@ -44,7 +44,7 @@ router.get("/", async function (req, res) {
 
 // new
 router.get("/new", function (req, res) {
-    res.render("product/new");
+    res.render("products/new");
     });
 
 

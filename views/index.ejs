@@ -5,7 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMPACT | Home</title>
 </head>
-<body>
+<body class="home">
+    <div class="nav">
+        <a href="/home">HOME</a>
+        <% if (!user) { %>
+            <a href="/auth/login">LOGIN/REGISTER</a>
+        <% } else { %>
+        <form action="/auth/logout?_method=DELETE" method="POST"><input type="submit" value="Logout"></form>
+        <% } %>
+            <select onChange="window.location.href=this.value">
+                <option selected="selected">Choose an option</option>
+                <option value="/products/crueltyfree">Cruelty Free</option>
+                <option value="/products/plastic">Plastic Consumption</option>
+                <option value="/products/carbon">Carbon Emissions</option>
+                <option value="/products/new">Share A New Product</option>
+                <% if (user) {%>
+                <option value="/users/profile">Your Profile</a>
+                <% } %>
+
+            </select>
+            </div>
+        </div>
+        
+    </div>
     <h1>Temp Index/Home Page Header</h1>
 </body>
 </html>
