@@ -60,7 +60,7 @@ app.get("/home", function (req, res)  {
 app.use("/auth", controllers.auth);
 
 // User Route
-app.use("/user", authRequired, controllers.user);
+app.use("/users", authRequired, controllers.user);
 
 // Product Route
 app.use("/products", controllers.product);

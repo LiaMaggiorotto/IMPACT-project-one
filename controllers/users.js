@@ -24,9 +24,7 @@ router.get("/login", function (req, res) {
     res.render("users/login");
     });
 
-
-
-// // create -- this will be moved to Auth I believe
+// // create
 // router.post("/", function (req, res) {
 //     db.User.create(req.body, function (err, createdUser) {
 //     if (err) {
@@ -58,7 +56,7 @@ router.get("/:id/edit", function (req, res) {
         console.log(err);
         return res.send(err);
     }
-    const context = { user: foundUser };
+    const context = { foundUser: foundUser };
     res.render("users/edit", context);
     });
 });
