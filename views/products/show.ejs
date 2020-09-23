@@ -16,7 +16,7 @@
         <form action="/auth/logout?_method=DELETE" method="POST"><input type="submit" value="Logout"></form>
         <% } %>
     </div>
-<%- include('../../partials/nav') %>
+<%- include('../partials/nav') %>
     <h1><%= products.category %> Products</h1>
 
     <% for (let i=0; i < products.length; i++ ) { %>
@@ -25,9 +25,6 @@
                 <img class="productImage" src="<%= products[i].imageLink %>">
             </div>
             <div class="productDetail">
-                
-            </div>
-            <div class="">
                 <img src="<%= products.imageLink %>"><br>
                 <%= products[i].title %><br>
                 <%= products[i].price %><br>

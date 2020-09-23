@@ -47,7 +47,7 @@ router.get("/carbonproducts", async function (req, res) {
         products: foundProducts,
         }
         console.log(foundProducts)
-        res.render("products/carbon_emissions/show", {...context});
+        res.render("products/show", context);
         } catch (error) {
         console.log (error);
         res.send( { message: "Internal Server Error" });
@@ -62,7 +62,7 @@ router.get("/crueltyfreeproducts", async function (req, res) {
         products: foundProducts,
         }
         console.log(foundProducts)
-        res.render("products/cruelty_free/show", context);
+        res.render("products/show", context);
         } catch (error) {
         console.log (error);
         res.send( { message: "Internal Server Error" });
@@ -77,7 +77,7 @@ router.get("/plasticproducts", async function (req, res) {
         products: foundProducts,
         }
         console.log(foundProducts)
-        res.render("products/plastic_consumption/show", context);
+        res.render("products/show", context);
         } catch (error) {
         console.log (error);
         res.send( { message: "Internal Server Error" });
