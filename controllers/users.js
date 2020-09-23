@@ -92,24 +92,15 @@ router.put("/:id", function (req, res) {
 });
 
   // delete <- delete profile route
-router.delete("/:id", function (req, res) {
-    db.User.findByIdAndDelete(req.params.id, function (err, deletedUser) {
-    if (err) {
-        console.log(err);
-        return res.send(err);
+router.delete("/:id", async function (req, res) {
+    try {
+        await db.User.findByIdAndDelete(req.params.id, function (err, deletedUser) {
+    });
+    req.session.destroy(()=> res.redirect('/'));
+        
+    } catch (error) {
+        
     }
-
-    db.User.remove({ author: deletedUser._id }, function (
-        err,
-        removedUsers
-    ) {
-        if (err) {
-        console.log(err);
-        return res.send(err);
-        }
-        res.redirect("/");
-    });
-    });
 });
 
 module.exports = router;

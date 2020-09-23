@@ -39,6 +39,12 @@ app.use(session({
       maxAge: 1000 * 60 * 60 * 24 * 7 * 2 
     }
   }));
+
+  //https://stackoverflow.com/questions/37183766/how-to-get-the-session-value-in-ejs
+  app.use(function(req, res, next) {
+    res.locals.user = req.session.currentUser;
+    next();
+  });
  
 
 // --------------------- Routes
