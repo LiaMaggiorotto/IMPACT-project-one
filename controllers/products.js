@@ -39,20 +39,68 @@ router.get("/", async function (req, res) {
         }
 });
 
+// index view, carbon product list 
+router.get("/carbonproducts", async function (req, res) {
+    try {
+        const foundProducts = await db.Product.find({ category: "Carbon Emissions" }); 
+        const context = {
+        products: foundProducts,
+        }
+        console.log(foundProducts)
+        res.render("products/carbon_emissions/show", context);
+        } catch (error) {
+        console.log (error);
+        res.send( { message: "Internal Server Error" });
+        }
+});
 
+// index view, cruelty product list 
+router.get("/crueltyfreeproducts", async function (req, res) {
+    try {
+        const foundProducts = await db.Product.find({ category: "Cruelty Free" }); 
+        const context = {
+        products: foundProducts,
+        }
+        console.log(foundProducts)
+        res.render("products/cruelty_free/show", context);
+        } catch (error) {
+        console.log (error);
+        res.send( { message: "Internal Server Error" });
+        }
+});
+
+// // index view, plastic product list 
+router.get("/plasticproducts", async function (req, res) {
+    try {
+        const foundProducts = await db.Product.find({ category: "Plastic Consumption"});
+        const context = {
+        products: foundProducts,
+        }
+        console.log(foundProducts)
+        res.render("products/plastic_consumption/show", context);
+        } catch (error) {
+        console.log (error);
+        res.send( { message: "Internal Server Error" });
+        }
+});
 
 
 
 // new
 router.get("/new", authRequired, function (req, res) {
-    res.render("products/new", { user: req.session.currentUser });
+    const categories = ["Plastic Consumption", "Cruelty Free", "Carbon Emissions"];
+    const context = {
+        categories: categories,
+    }
+    res.render("products/new", { user: req.session.currentUser, ...context });
     });
 
 
 
 // create
 router.post("/", function (req, res) {
-    req.body.user = req.session.currentUser._id;
+    req.body.user = req.session.currentUser.id;
+    console.log(req.body.user)
     db.Product.create(req.body, function (err, createdProduct) {
     if (err) {
         console.log(err);
@@ -60,8 +108,9 @@ router.post("/", function (req, res) {
     } 
     db.User.findById(req.body.user, function (err, foundUser) {
         foundUser.products.push(createdProduct);
-        foundUser.save()
-        res.redirect("/user/:id");
+        foundUser.save();
+        console.log(createdProduct);
+        res.redirect(`/users/${req.body.user}`);
     })
     });
 });

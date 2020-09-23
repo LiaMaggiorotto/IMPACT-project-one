@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema(
     productLink: { type: String, required: true, unique: true },
     description: { type: String },
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User",  required: true}, 
-    category: { type: String, required: true, enum: ["Plastic Consumption", "Cruelty Free", "Carbon Emmissions"] }
+    category: { type: String, required: true }
   },
   {
     timestamps: true
