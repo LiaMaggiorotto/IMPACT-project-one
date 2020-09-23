@@ -8,6 +8,7 @@ const MongoStore = require('connect-mongo')(session);
 // --------------------- Internal Modules
 const db = require("./models");
 const controllers = require("./controllers");
+const {authRequired} = require('./controllers/auth');
 
 
 // --------------------- Instanced Modules
@@ -39,13 +40,6 @@ app.use(session({
     }
   }));
  
-const authRequired = function(req, res, next) {
-  if(!req.session.currentUser) {
-    return res.redirect("/login");
-  }
-  next();
-}
-
 
 // --------------------- Routes
 

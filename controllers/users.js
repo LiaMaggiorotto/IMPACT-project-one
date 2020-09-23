@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const db = require("../models");
+const {isCorrectUser} = require('./auth');
 
 
 // index view
@@ -21,7 +22,7 @@ const db = require("../models");
 
 // view register/login page
 router.get("/login", function (req, res) {
-    res.render("users/login", { user: req.session.currentUser });
+    res.render("/auth/login", { user: req.session.currentUser });
     });
 
 // // create
@@ -36,29 +37,43 @@ router.get("/login", function (req, res) {
 // });
 
 // show, individual user profile page
-router.get("/:id", function (req, res) {
-    db.User.findById(req.params.id)
-    .populate("products")
-    .exec(function (err, foundUser) {
-        if (err) {
-        console.log(err);
-        return res.send(err);
-        }
-        const context = { user: foundUser };
-        res.render("users/profile", context);
-    });
+router.get("/:id", isCorrectUser, async function (req, res) {
+    // db.User.findById(req.params.id)
+    // .populate("products")
+    // .exec(function (err, foundUser) {
+    //     if (err) {
+    //     console.log(err);
+    //     return res.send(err);
+    //     }
+    //     const context = { user: foundUser };
+    //     res.render("users/profile", context);
+    // });
+    try {
+        //https://stackoverflow.com/questions/46457071/using-mongoose-promises-with-async-await#answer-46457247
+         const user = await db.User.findById(req.params.id)
+        .populate("products")
+        .exec();
+        console.log(user);
+            res.render("users/profile", {user: user, foundUser: user});
+    } catch (error) {
+        return res.json(error);
+    }
+
+
 });
 
 // edit <- view, edit individual user profile page
-router.get("/:id/edit", function (req, res) {
-    db.User.findById(req.params.id, function (err, foundUser) {
-    if (err) {
-        console.log(err);
-        return res.send(err);
-    }
-    const context = { foundUser: foundUser };
-    res.render("users/edit", context, { user: req.session.currentUser });
-    });
+router.get("/:id/edit", isCorrectUser, async function (req, res) {
+    // if (err) {
+    //     console.log(err);
+    //     return res.send(err);
+    // }
+    // const context = { foundUser: foundUser };
+    // res.render("users/edit", context, { user: req.session.currentUser });
+    // });
+    const user = await db.User.findById(req.params.id).exec();
+    res.render("users/edit", { user: user, foundUser: user });
+    
 });
 
 // update <- db change to user profile

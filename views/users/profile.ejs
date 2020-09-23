@@ -35,8 +35,8 @@
         Location: <%= foundUser.location %><br>
         Passions: <%= foundUser.passions %><br>
         Member Since: <%= foundUser.createdAt %><br>
-        <% if(logged === true && foundUser._id.toString() === sessionID.toString()) { %>
-            <a href="/user/<%= foundUser._id %>/edit">Edit Profile</a>
+        <% if(user) { %>
+            <a href="/users/<%= foundUser._id %>/edit">Edit Profile</a>
         <% } %>
     </div>
     <div class="userContributions">

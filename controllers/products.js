@@ -1,6 +1,7 @@
 // base route is /products
 const express = require("express");
 const router = express.Router();
+const {authRequired} = require('./auth');
 
 const db = require("../models");
 
@@ -43,7 +44,7 @@ router.get("/", async function (req, res) {
 
 
 // new
-router.get("/new", function (req, res) {
+router.get("/new", authRequired, function (req, res) {
     res.render("products/new", { user: req.session.currentUser });
     });
 
