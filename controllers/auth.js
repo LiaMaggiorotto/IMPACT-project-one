@@ -24,10 +24,11 @@ router.post("/register", async function(req, res) {
         if(foundUser) {
             return res.send({ message: "An account with this email is already registered" });
         }
+        const newUser = req.body;
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(req.body.password, salt);
-        req.body.password = hash;
-        const createdUser = await db.User.create(req.body);
+        newUser.password = hash;
+        const createdUser = await db.User.create(newUser);
         req.session.currentUser = {
             username: createdUser.username,
             id: createdUser._id,
@@ -67,5 +68,19 @@ router.delete("/logout", async function(req, res) {
     res.redirect("/");
 })
 
-
 module.exports = router;
+
+module.exports.authRequired = (req, res, next) => {
+          if(!req || !req.session || (req.session.cookie['_expires'] - new Date()) < 0) {
+            return res.redirect("/auth/login");
+          }
+          next();
+}
+
+module.exports.isCorrectUser = (req, res, next) => {
+    if(req && req.session && req.session.currentUser && req.session.currentUser.id === req.params.id){
+        next();
+    } else {
+        res.status(403).json({error: 'You Shall Not PAAAAAASSSSSS!!!!!'});
+    }
+}

@@ -8,6 +8,7 @@ const MongoStore = require('connect-mongo')(session);
 // --------------------- Internal Modules
 const db = require("./models");
 const controllers = require("./controllers");
+const {authRequired} = require('./controllers/auth');
 
 
 // --------------------- Instanced Modules
@@ -38,14 +39,13 @@ app.use(session({
       maxAge: 1000 * 60 * 60 * 24 * 7 * 2 
     }
   }));
- 
-const authRequired = function(req, res, next) {
-  if(!req.session.currentUser) {
-    return res.redirect("/login");
-  }
-  next();
-}
 
+  //https://stackoverflow.com/questions/37183766/how-to-get-the-session-value-in-ejs
+  app.use(function(req, res, next) {
+    res.locals.user = req.session.currentUser;
+    next();
+  });
+ 
 
 // --------------------- Routes
 

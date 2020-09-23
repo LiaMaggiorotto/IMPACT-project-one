@@ -16,18 +16,7 @@
         <form action="/auth/logout?_method=DELETE" method="POST"><input type="submit" value="Logout"></form>
         <% } %>
     </div>
-    <div class="navdropdown">
-            <select onChange="window.location.href=this.value">
-                <option selected="selected">Choose an option</option>
-                <option value="/products/crueltyfree">Cruelty Free</option>
-                <option value="/products/plastic">Plastic Consumption</option>
-                <option value="/products/carbon">Carbon Emissions</option>
-                <option value="/products/new">Share A New Product</option>
-                <% if (user) {%>
-                <option value="/users/profile">Your Profile</a>
-                <% } %>
-            </select>
-    </div>
+<%- include('../../partials/nav') %>
     <h1 class="landing_page">Choose Cruelty Free</h1>
 
     <div class="landing_body"> Small blurb regarding what "cruelty free" means and its importance </div>

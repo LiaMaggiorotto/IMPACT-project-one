@@ -16,18 +16,7 @@
         <form action="/auth/logout?_method=DELETE" method="POST"><input type="submit" value="Logout"></form>
         <% } %>
     </div>
-    <div class="navdropdown">
-            <select onChange="window.location.href=this.value">
-                <option selected="selected">Choose an option</option>
-                <option value="/products/crueltyfree">Cruelty Free</option>
-                <option value="/products/plastic">Plastic Consumption</option>
-                <option value="/products/carbon">Carbon Emissions</option>
-                <option value="/products/new">Share A New Product</option>
-                <% if (user) {%>
-                <option value="/users/profile">Your Profile</a>
-                <% } %>
-            </select>
-    </div>
+<%- include('../partials/nav') %>
 
     <img src="<%= foundUser.imageLink %>" id="profilePicture" alt="User Profile Picture">
     <div class="profileDetails">
@@ -35,8 +24,8 @@
         Location: <%= foundUser.location %><br>
         Passions: <%= foundUser.passions %><br>
         Member Since: <%= foundUser.createdAt %><br>
-        <% if(logged === true && foundUser._id.toString() === sessionID.toString()) { %>
-            <a href="/user/<%= foundUser._id %>/edit">Edit Profile</a>
+        <% if(user) { %>
+            <a href="/users/<%= foundUser._id %>/edit">Edit Profile</a>
         <% } %>
     </div>
     <div class="userContributions">
