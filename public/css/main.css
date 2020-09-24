@@ -6,8 +6,8 @@ h1 {
 
 /* Navigation */
 
-.nav-bar-login {
-
+.navbar {
+    background-color:  rgba(216, 214, 197, 0.6);
 }
 
 .nav-item {
@@ -46,11 +46,13 @@ header {
     z-index: 1;
   }
 
+
 .flex-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 60px;
+    margin-bottom: 30px;
 }
 
 .loginBox {
@@ -73,8 +75,12 @@ header {
 .btn-primary {
     color: rgb(216, 214, 197);
     background-color: rgb(54, 55, 74);
+    border: none;
 }
 
+.btn-primary:hover {
+    background-color: rgb(109, 108, 116);
+}
 
   
   @media (pointer: coarse) and (hover: none) {
