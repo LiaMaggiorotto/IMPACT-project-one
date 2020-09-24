@@ -128,7 +128,37 @@ router.get("/:id", function (req, res) {
         return res.send(err);
         }
         const context = { product: foundProduct };
-        res.render("product/show", context);
+        res.render("users/show", context);
+    });
+});
+
+
+
+// // edit <- view
+router.get("/:id/edit", function (req, res) {
+    db.Product.findById(req.params.id, function (err, foundProduct) {
+    if (err) {
+        console.log(err);
+        return res.send(err);
+    }
+    const context = { product: foundProduct };
+    res.render("products/edit", context);
+    });
+});
+
+// // update <- db change
+router.put("/:id", function (req, res) {
+    req.body.user = req.session.currentUser.id;
+    db.Product.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (
+    err,
+    updatedProduct
+    ) {
+    if (err) {
+        console.log(err);
+        return res.send(err);
+    }
+    console.log(updatedProduct);
+    res.redirect(`/users/${req.body.user}`);
     });
 });
 
@@ -136,56 +166,26 @@ router.get("/:id", function (req, res) {
 
 
 
-// // edit <- view
-// router.get("/:id/edit", function (req, res) {
-//     db.Product.findById(req.params.id, function (err, foundProduct) {
-//     if (err) {
-//         console.log(err);
-//         return res.send(err);
-//     }
-//     const context = { product: foundProduct };
-//     res.render("product/edit", context);
-//     });
-// });
-
-// // update <- db change
-// router.put("/:id", function (req, res) {
-//     db.Product.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (
-//     err,
-//     updatedProduct
-//     ) {
-//     if (err) {
-//         console.log(err);
-//         return res.send(err);
-//     }
-
-//     res.redirect(`/products/${updatedProduct._id}`);
-//     });
-// });
-
-
-
-
-
   // delete
-// router.delete("/:id", function (req, res) {
-//     db.Product.findByIdAndDelete(req.params.id, function (err, deletedProduct) {
-//     if (err) {
-//         console.log(err);
-//         return res.send(err);
-//     }
+router.delete("/:id", function (req, res) {
+    req.body.user = req.session.currentUser.id;
+    db.Product.findByIdAndDelete(req.params.id, function (err, deletedProduct) {
+    if (err) {
+        console.log(err);
+        return res.send(err);
+    }
 
-//     db.Product.remove({ author: deletedProduct._id }, function (
-//         err,
-//         removedProducts
-//     ) {
-//         if (err) {
-//         console.log(err);
-//         return res.send(err);
-//         }
-//         res.redirect("/products");
-//     });
-//     });
-// });
+    db.Product.remove({ product: deletedProduct._id }, function (
+        err,
+        removedProducts
+    ) {
+        if (err) {
+        console.log(err);
+        return res.send(err);
+        }
+        res.redirect(`/users/${req.body.user}`);
+    });
+    });
+});
 
 module.exports = router;
