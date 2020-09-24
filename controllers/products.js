@@ -128,40 +128,39 @@ router.get("/:id", function (req, res) {
         return res.send(err);
         }
         const context = { product: foundProduct };
-        res.render("product/show", context);
+        res.render("users/show", context);
     });
 });
 
 
 
-
-
 // // edit <- view
-// router.get("/:id/edit", function (req, res) {
-//     db.Product.findById(req.params.id, function (err, foundProduct) {
-//     if (err) {
-//         console.log(err);
-//         return res.send(err);
-//     }
-//     const context = { product: foundProduct };
-//     res.render("product/edit", context);
-//     });
-// });
+router.get("/:id/edit", function (req, res) {
+    db.Product.findById(req.params.id, function (err, foundProduct) {
+    if (err) {
+        console.log(err);
+        return res.send(err);
+    }
+    const context = { product: foundProduct };
+    res.render("products/edit", context);
+    });
+});
 
 // // update <- db change
-// router.put("/:id", function (req, res) {
-//     db.Product.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (
-//     err,
-//     updatedProduct
-//     ) {
-//     if (err) {
-//         console.log(err);
-//         return res.send(err);
-//     }
-
-//     res.redirect(`/products/${updatedProduct._id}`);
-//     });
-// });
+router.put("/:id", function (req, res) {
+    req.body.user = req.session.currentUser.id;
+    db.Product.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (
+    err,
+    updatedProduct
+    ) {
+    if (err) {
+        console.log(err);
+        return res.send(err);
+    }
+    console.log(updatedProduct);
+    res.redirect(`/users/${req.body.user}`);
+    });
+});
 
 
 

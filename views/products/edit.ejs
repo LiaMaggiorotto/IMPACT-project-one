@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPACT | Edit Product</title>
+    <%- include('../partials/style') %>
+
+</head>
+<body class="userEdit">
+<%- include('../partials/nav') %>
+    <h1>Edit Product</h1>
+    <h2> <%= product.title %> </h2>
+
+    <form action="/products/<%= product._id %>?_method=PUT" method="POST">
+        Product Title: <input type="text" name="title" value="<%= product.title %>"><br>
+            Price: <input type="text" name="price" value="<%= product.price %>">
+            Image Link: <input type="url" name="imageLink" value="<%= product.imageLink %>"><br>
+            Product Link: <input type="url" name="productLink" value="<%= product.productLink %>"><br>
+            Description: <input type="text" name="description" value="<%= product.description %>"><br>
+        <input type="submit" value="Update Product">
+    </form>
+    <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Product">
+    </form>
+    <footer>
+        <%- include('../partials/footer') %>
+    </footer>
+</body>
+</html>
