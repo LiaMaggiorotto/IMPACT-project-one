@@ -167,24 +167,25 @@ router.put("/:id", function (req, res) {
 
 
   // delete
-// router.delete("/:id", function (req, res) {
-//     db.Product.findByIdAndDelete(req.params.id, function (err, deletedProduct) {
-//     if (err) {
-//         console.log(err);
-//         return res.send(err);
-//     }
+router.delete("/:id", function (req, res) {
+    req.body.user = req.session.currentUser.id;
+    db.Product.findByIdAndDelete(req.params.id, function (err, deletedProduct) {
+    if (err) {
+        console.log(err);
+        return res.send(err);
+    }
 
-//     db.Product.remove({ author: deletedProduct._id }, function (
-//         err,
-//         removedProducts
-//     ) {
-//         if (err) {
-//         console.log(err);
-//         return res.send(err);
-//         }
-//         res.redirect("/products");
-//     });
-//     });
-// });
+    db.Product.remove({ product: deletedProduct._id }, function (
+        err,
+        removedProducts
+    ) {
+        if (err) {
+        console.log(err);
+        return res.send(err);
+        }
+        res.redirect(`/users/${req.body.user}`);
+    });
+    });
+});
 
 module.exports = router;
