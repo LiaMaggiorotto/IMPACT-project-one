@@ -1,35 +1,42 @@
-<nav class ="navbar navbar-expand-xlg navbar-light bg-light sticky-top">
-    <div class="container-fluid"></div>
-<a class="navbar-brand" href="/"><img src="insert small logo image here">
-</div>
-<div class="navlogin">
-    <% if (user) { %>
-        <form action="/auth/logout?_method=DELETE" method="POST"><input type="submit" value="Logout"></form>
-    <% } else { %>
-        <a href="/auth/login">LOGIN/REGISTER</a>
-    <% } %>
-</div>
-<button class ="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="/products/crueltyfree">Cruelty Free</a></li>
-        <li class="nav-item"><a class="nav-link" href="/products/plastic">Plastic Consumption</a></li> 
-        <li class="nav-item"><a class="nav-link" href="/product/carbon">Carbon Emissions</a></li>
+<!-- Overall nav bar styling -->
+
+<nav class ="navbar navbar-expand-xlg navbar-light bg-faded navbar-sticky-top">
+
+    <!-- Impact Logo -->
+    <a class="navbar-brand" href="/"><img src="https://i.imgur.com/8vwiEc5t.jpg" class="rounded" width="30" height="30" alt="impact.logo" loading="lazy"></a>
     
-    <!-- <select onChange="window.location.href=this.value">
-        <option selected="selected">Choose an option</option>
-        <option value="/products/crueltyfree">Cruelty Free</option>
-        <option value="/products/plastic">Plastic Consumption</option>
-        <option value="/products/carbon">Carbon Emissions</option> -->
-        <% if (user) {%>
-            <li class="nav-item"><a class="nav-link" href="/products/new">Share A New Product</a></li>
-            <li class="nav-item"><a class="nav-link" href="/users/<%= user.id %>">Your Profile</a></li>
-        <!-- <option value="/products/new">Share A New Product</option>
-        <option value="/users/<%= user.id %>">Your Profile</a> -->
-        <% } %>
-    </ul>
-    <!-- </select> -->
-</div>
+    
+    <!-- Login/Register Link -->
+    <% if (user) { %>
+        <li class="nav-item" >
+            <form action="/auth/logout?_method=DELETE" method="POST"><input type="submit" value="Logout"></form>
+            <% } else { %>
+                <a href="/auth/login">LOGIN/REGISTER</a>
+            </li>
+            <% } %>
+            
+    <!-- Drop Down Menu -->
+        <div class="dropdown">
+            <button class ="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a tabindex="-1" href="/products/crueltyfree">Cruelty Free</a></li>
+                <li><a tabindex="-1" href="/products/plastic">Plastic Consumption</a></li>
+                <li><a tabindex="-1" href=/products/carbon>Carbon Emissions</a></li>
+                <li><a tabindex="-1" href=/about>About IMPACT</a></li>
+                  
+                <!-- <select onChange="window.location.href=this.value">
+                      <option selected="selected">Choose an option</option>
+                      <option value="/products/crueltyfree">Cruelty Free</option>
+                      <option value="/products/plastic">Plastic Consumption</option>
+                      <option value="/products/carbon">Carbon Emissions</option> -->
+                    <% if (user) {%>
+                        <li><a tabindex="-1" href="/products/new">Share A New Product</a></li>
+                        <li><a tabindex="-1" href="/users/<%= user.id %>">Your Profile</a></li>
+                        <!-- <option value="/products/new">Share A New Product</option>
+                            <option value="/users/<%= user.id %>">Your Profile</a> -->
+                                <% } %>
+            </ul>
+            </div>
 </nav>

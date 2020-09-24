@@ -4,22 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Product</title>
+    <%- include('../partials/style') %>
 </head>
 <body class="newProduct">
-    <div class="navhome">
-        <a href="/">HOME</a>
-    </div>
-    <div class="navlogin">
-        <% if (!user) { %>
-            <a href="/auth/login">LOGIN/REGISTER</a>
-        <% } else { %>
-        <form action="/auth/logout?_method=DELETE" method="POST"><input type="submit" value="Logout"></form>
-        <% } %>
-    </div>
 <%- include('../partials/nav') %>
-        <div class="nav">
-    
-        </div>
+       
     <h1>Add a New Product</h1>
     <div class="newProductForm">
         <form action="/products" method="POST">
@@ -37,6 +26,9 @@
         <input type="submit" value="Submit New Product">
         </form>
     </div>
+    <footer>
+        <%- include('../partials/footer') %>
+    </footer>
 </body>
 </html>
 
