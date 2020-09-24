@@ -1,16 +1,17 @@
-<!-- Overall nav bar styling -->
+
 <nav class="navbar navbar-light bg-faded navbar-sticky-top">
     <a class="navbar-brand" href="/"><img src="https://i.imgur.com/8vwiEc5t.jpg" class="rounded" width="30" height="30" alt="impact.logo" loading="lazy"></a>
     
-    <!-- Login/Register Link -->
     <% if (user) { %>
-        <li class="nav-item pull-left" >
+        <ul class="nav-bar-login"></ul>
+        <li class="nav-item">
             <form action="/auth/logout?_method=DELETE" method="POST">
-                <input class="btn btn-dark" type="submit" value="Logout">
+                <input class="btn btn-primary" type="submit" value="Logout">
             </form>
             <% } else { %>
-                <a class="btn btn-dark" href="/auth/login">LOGIN/REGISTER</a>
+                <a class="btn btn-primary" href="/auth/login">LOGIN/REGISTER</a>
             </li>
+        </ul>
             <% } %>
 
 
@@ -43,4 +44,5 @@
             <% } %>
       </ul>
     </div>
-  </nav>
+</nav>
+</div>

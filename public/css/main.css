@@ -6,17 +6,24 @@ h1 {
 
 /* Navigation */
 
-.navbar-brand {
-
+.navbar {
+    background-color:  rgba(216, 214, 197, 0.6);
 }
 
 .nav-item {
-    list-style: none,
+    list-style: none
+}
+
+.navbar-toggler-icon {
+    background-color: rgb(255, 255, 255);
+}
+
+.navbar-toggler {
+    background-color: rgb(255, 255, 255);
 }
 
 header {
     position: relative;
-    background-color: black;
     height: 75vh;
     min-height: 25rem;
     width: 100%;
@@ -38,19 +45,51 @@ header {
     transform: translateX(-50%) translateY(-50%);
   }
   
-  header .container {
-    position: relative;
-    z-index: 2;
-  }
-  
   header .overlay {
-    position: absolute;
-    top: 20;
-    left: 20;
-    height: 50vh;
-    width: 50vh;
+    position: relative;
+    box-sizing: content-box;
+    align-content: center;
+    max-width: 50vh;
+    min-height: 50vh;
     z-index: 1;
   }
+
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.loginBox {
+    background-color: rgba(216, 214, 197, 0.6);
+    color: rgb(54, 55, 74);
+    display: flex; 
+    padding: 2px;
+}
+
+.auth-form-container-left {
+    padding: 25px;
+    color: rgb(54, 55, 74);
+}
+
+.auth-form-container-right {
+    padding: 25px;
+    color: rgb(54, 55, 74);
+}
+
+.btn-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(54, 55, 74);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: rgb(109, 108, 116);
+}
+
   
   @media (pointer: coarse) and (hover: none) {
     header {
