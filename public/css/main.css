@@ -14,6 +14,14 @@ h1 {
     list-style: none
 }
 
+.navbar-toggler-icon {
+    background-color: rgb(255, 255, 255);
+}
+
+.navbar-toggler {
+    background-color: rgb(255, 255, 255);
+}
+
 header {
     position: relative;
     height: 75vh;
@@ -73,7 +81,7 @@ header {
 }
 
 .btn-primary {
-    color: rgb(216, 214, 197);
+    color: rgb(255, 255, 255);
     background-color: rgb(54, 55, 74);
     border: none;
 }
