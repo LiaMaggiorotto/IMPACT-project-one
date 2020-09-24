@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <title>IMPACT | Home</title>
+
+    <%- include('partials/style') %>
+
 </head>
 <body class="home">
-    <div class="navhome">
-        <a href="/">HOME</a>
-    </div>
-    <div class="navlogin">
-        <% if (user) { %>
-            <form action="/auth/logout?_method=DELETE" method="POST"><input type="submit" value="Logout"></form>
-        <% } else { %>
-            <a href="/auth/login">LOGIN/REGISTER</a>
-        <% } %>
-    </div>
     <%- include('partials/nav') %>
-            </div>
-        </div>
-        
-    </div>
     <h1>Temp Index/Home Page Header</h1>
+
+
+    <footer>
+        <%- include('partials/footer') %>
+    </footer>
+
 </body>
 </html>
