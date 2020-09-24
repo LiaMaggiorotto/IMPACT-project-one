@@ -24,7 +24,7 @@
                 <li><a tabindex="-1" href="/products/crueltyfree">Cruelty Free</a></li>
                 <li><a tabindex="-1" href="/products/plastic">Plastic Consumption</a></li>
                 <li><a tabindex="-1" href=/products/carbon>Carbon Emissions</a></li>
-
+                <li><a tabindex="-1" href=/about>About IMPACT</a></li>
                   
                 <!-- <select onChange="window.location.href=this.value">
                       <option selected="selected">Choose an option</option>
@@ -32,7 +32,8 @@
                       <option value="/products/plastic">Plastic Consumption</option>
                       <option value="/products/carbon">Carbon Emissions</option> -->
                     <% if (user) {%>
-                 
+                        <li><a tabindex="-1" href="/products/new">Share A New Product</a></li>
+                        <li><a tabindex="-1" href="/users/<%= user.id %>">Your Profile</a></li>
                         <!-- <option value="/products/new">Share A New Product</option>
                             <option value="/users/<%= user.id %>">Your Profile</a> -->
                                 <% } %>
