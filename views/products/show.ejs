@@ -15,7 +15,7 @@
  </div>
 
         <div class="flex-container">
-            <% for (let i=0; i < products.length; i++ ) { %>
+            <% for (let i=0; i < products.length; i++) { %>
                 <div class="card" style="width: 15rem;">
                     <a href="<%= products[i].productLink %>"><img src="<%= products[i].imageLink %>" class="card-img-top"></a>
                     <div class="card-body">
@@ -25,7 +25,7 @@
                             
                     </div>
                 </div>
-                <small class="text-muted"><%= products[i].category %></small>
+                <small class="text-muted"><%= products[i].user %></small>
                     </div>
                     <% } %>
                 </div>
