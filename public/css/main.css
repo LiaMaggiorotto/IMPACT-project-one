@@ -199,3 +199,13 @@ h6 {
 .input {
     font-size: smaller;
 }
+
+.finalButton {
+    justify-content: center;
+    align-items: baseline;
+}
+
+.footer {
+    position: static;
+    bottom: 0;
+    left: 0;

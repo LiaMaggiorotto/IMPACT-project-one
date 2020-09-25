@@ -16,12 +16,12 @@
     
     <div class="flex-container">
         <div class="card" style="width: 25rem;">
-        <div class="card-body" id="profileItems">
+        <div class="card-body" id="productItems">
             <form action="/products/<%= product._id %>?_method=PUT" method="POST">
-                <h5>Product Title: <span><input type="text" name="title" value="<%= product.title %>"></span></h5>
-                <h5>Image Link: <span><input type="url" name="imageLink" value="<%= product.imageLink %>"></span></h5>
-                <h5><span>Link: <input type="url" name="productLink" value="<%= product.productLink %>"></span></h5>
-                <h5>Description: <span><input type="text" name="description" value="<%= product.description %>"></span></h5>
+                <h5>Product Title: <span class="input"><input type="text" name="title" value="<%= product.title %>"></span></h5>
+                <h5>Image Link:<span class="input"><input type="url" name="imageLink" value="<%= product.imageLink %>"></span></h5>
+                <h5>Link:<span class="input"><input type="url" name="productLink" value="<%= product.productLink %>"></span></h5>
+                <h5>Description: <span class="input"><input type="text" name="description" value="<%= product.description %>"></span></h5>
                 <input type="submit" value="Update Product" class="btn btn-primary" id="editProduct">
             </form>
             <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
@@ -30,19 +30,6 @@
             </div>
         </div>
     </div>
-
-
-    <!-- <form action="/products/<%= product._id %>?_method=PUT" method="POST">
-        Product Title: <input type="text" name="title" value="<%= product.title %>">
-            Price: <input type="text" name="price" value="<%= product.price %>">
-            Image Link: <input type="url" name="imageLink" value="<%= product.imageLink %>"><br>
-            Product Link: <input type="url" name="productLink" value="<%= product.productLink %>"><br>
-            Description: <input type="text" name="description" value="<%= product.description %>"><br>
-        <input type="submit" value="Update Product">
-    </form>
-    <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete">
-    </form> -->
 
     <footer>
         <%- include('../partials/footer') %>

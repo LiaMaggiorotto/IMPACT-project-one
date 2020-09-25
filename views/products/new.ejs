@@ -6,29 +6,33 @@
     <title>New Product</title>
     <%- include('../partials/style') %>
 </head>
-<body class="newProduct">
+<body class="solidBody">
 <%- include('../partials/nav') %>
        
-    <h1>Add a New Product</h1>
-    <div class="newProductForm">
-        <form action="/products" method="POST">
-            Product Title: <input type="text" name="title" placeholder="title"><br>
-            Price: <input type="text" name="price" placeholder="0.00">
-            Image Link: <input type="url" name="imageLink"><br>
-            Product Link: <input type="url" name="productLink"><br>
-            Description: <input type="text" name="description"><br>
-            Category: <select name = "category">
-                <% categories.forEach((category) => { %>
-                    <% console.log(category) %>
-                    <option><%=category%></option>
-                <%})%>
-            </select>
-        <input type="submit" value="Submit New Product">
-        </form>
+<div class="profileHeader">
+    <h2>Share a new Product</h2>
+ </div>
+
+ <div class="flex-container">
+    <div class="card" style="width: 25rem;">
+        <div class="card-body" id="profileItems">
+            <form action="/products" method="POST">
+                <h5>Product Title: <span class="input"><input type="text" name="title" placeholder="title"></span></h5>
+                <h5>Price:<span class="input"><input type="text" name="price" placeholder="0.00"></span></h5>
+                <h5>Image Link: <span class="input"><input type="url" name="imageLink" placeholder="http://"></span></h5>
+                <h5>Product Link:<span class="input"><input type="url" name="productLink" placeholder="http://"></span></h5>
+                <h5>Description: <span class="input"><input type="text" name="description" placeholder="sell it!"></span></h5>
+                <h5>Category: <span class="input"><select name = "category">
+                    <% categories.forEach((category) => { %>
+                        <% console.log(category) %>
+                            <option><%=category%></option>
+                    <%})%>
+                </select></span></h5>
+            <input type="submit" value="Submit New Product" class="btn btn-primary">
+            </form>
+        </div>
     </div>
-    <footer>
-        <%- include('../partials/footer') %>
-    </footer>
+</div>
 </body>
 </html>
 
