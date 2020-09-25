@@ -1,13 +1,6 @@
-/* sanity check */
-
-h1 {
-    color: blue;
-}
-
-/* Navigation */
 
 .navbar {
-    background-color:  rgba(216, 214, 197, 0.6);
+    background-color:  rgba(255, 255, 255, 0.7);
 }
 
 .nav-item {
@@ -24,6 +17,7 @@ h1 {
 
 .solidBody {
     background-color: rgba(218, 211, 195, 0.2);
+    color: rgb(54, 55, 74);
 }
 
 header {
@@ -140,14 +134,68 @@ h6 {
     font-size: smaller;
 }
 
+.card-body {
+    text-align: center;
+    justify-content: center;
+}
 
-  
-  @media (pointer: coarse) and (hover: none) {
-    header {
-      background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
-    }
-    header video {
-      display: none;
-    }
-  }
-  
+#profileItems {
+    text-align: left;
+    justify-content: left;
+}
+
+.jumbotron {
+    margin-top: 40px;
+}
+
+#creatorCard {
+    margin-right: 50px;
+}
+
+.py-5 {
+    padding-top: 0px;
+}
+
+.carbonEm {
+    background-image: url(https://i.imgur.com/C2ZOkPj.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.crueltyFree {
+    background-image: url(https://i.imgur.com/6fDQWJP.jpg?1);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.plasticCon {
+    background-image: url(https://i.imgur.com/KaEHr7w.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.landingInfo {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: rgb(54, 55, 74);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.landingPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#editProduct {
+    margin-top: 10px;
+}
+
+.input {
+    font-size: smaller;
+}

@@ -7,13 +7,33 @@
     <%- include('../partials/style') %>
 
 </head>
-<body class="userEdit">
-<%- include('../partials/nav') %>
-    <h1>Edit Product</h1>
-    <h2> <%= product.title %> </h2>
+<body class="solidBody">
+    <%- include('../partials/nav') %>
+    
+    <div class="profileHeader">
+       <h2>Edit Product Details</h2>
+    </div>
+    
+    <div class="flex-container">
+        <div class="card" style="width: 25rem;">
+        <div class="card-body" id="profileItems">
+            <form action="/products/<%= product._id %>?_method=PUT" method="POST">
+                <h5>Product Title: <span><input type="text" name="title" value="<%= product.title %>"></span></h5>
+                <h5>Image Link: <span><input type="url" name="imageLink" value="<%= product.imageLink %>"></span></h5>
+                <h5><span>Link: <input type="url" name="productLink" value="<%= product.productLink %>"></span></h5>
+                <h5>Description: <span><input type="text" name="description" value="<%= product.description %>"></span></h5>
+                <input type="submit" value="Update Product" class="btn btn-primary" id="editProduct">
+            </form>
+            <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete" class="btn btn-primary" id="editProduct">
+            </form>
+            </div>
+        </div>
+    </div>
 
-    <form action="/products/<%= product._id %>?_method=PUT" method="POST">
-        Product Title: <input type="text" name="title" value="<%= product.title %>"><br>
+
+    <!-- <form action="/products/<%= product._id %>?_method=PUT" method="POST">
+        Product Title: <input type="text" name="title" value="<%= product.title %>">
             Price: <input type="text" name="price" value="<%= product.price %>">
             Image Link: <input type="url" name="imageLink" value="<%= product.imageLink %>"><br>
             Product Link: <input type="url" name="productLink" value="<%= product.productLink %>"><br>
@@ -22,7 +42,8 @@
     </form>
     <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
         <input type="submit" value="Delete">
-    </form>
+    </form> -->
+
     <footer>
         <%- include('../partials/footer') %>
     </footer>

@@ -6,9 +6,55 @@
     <title>IMPACT | About</title>
     <%- include('partials/style') %>
 </head>
-<body>
+<body class="solidBody">
+
 <%- include('partials/nav') %>
-    <h1>About IMPACT View Page</h1>
+
+<main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">About IMPACT</h1>
+        <h4 id="consistency">"The people who make the biggest difference are the ones who do the little things consistently"</h4>
+        <p class="lead text-muted">Our goal here at IMPACT is to provide a resource for individuals like ourselves that have a need to do whatever they can to help improve the health of our Planet Earth. By giving users a platform to find and share links to environmentally friendly products, we hope to help improve the buying habits of those that share this goal. We also hope to spread awareness of the way that the kinds of products people use can effect the health of the environment that we live in and share.</p>
+        <p> We look forward to making an impact with you. </p>
+        <p>
+          <a href="/auth/login" class="btn btn-primary my-2">Join IMPACT</a>
+        </p>
+      </div>
+    </section>
+
+    <div class="album py-5">
+        <h4>Meet the Creators</h4>
+      <div class="container">
+        <div class="flex-container">
+            <div class="card" id="creatorCard" style="width: 15rem;">
+            <img src="https://i.imgur.com/i78UClhl.jpg" data-holder-rendered="" class="card-img-top" id="profilePicture" alt="Brendan Bliss">
+            <div class="card-body">
+               <h5 id="aboutName"> Brendan Bliss </h5>
+                <p class="card-text"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="https://www.linkedin.com/in/brendantbliss/" class="btn btn-sm btn-outline-secondary">View Brendan on LinkedIn</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 15rem;">
+            <img src="https://i.imgur.com/MoBPaVGm.jpg?2" data-holder-rendered="" class="card-img-top" id="profilePicture" alt="Lia Maggiorotto">
+            <div class="card-body">
+               <h5 id="aboutName"> Lia Maggiorotto </h5>
+                <p class="card-text"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="https://www.linkedin.com/in/liamaggiorotto/" class="btn btn-sm btn-outline-secondary">View Lia on LinkedIn</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  </main>
 
     <footer>
         <%- include('partials/footer') %>
