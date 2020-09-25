@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= product.category %> Products</title>
+    <title><%= products.category %> Products</title>
     <%- include('../partials/style') %>
 </head>
 
@@ -11,7 +11,7 @@
     <%- include('../partials/nav') %>
 
         <div class="profileHeader">
-            <h2>IMPACT <%= product.category %> </h2>
+            <h2>IMPACT <%= products.category %> </h2>
         </div>
 
         <div class="flex-container">
@@ -25,7 +25,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                             </div>
                         </div>
-                    <small class="text-muted"><%= product.user.username %></small>
+                    <small class="text-muted"><%= products[i].user.username %></small>
                 </div>
             <% } %>
         </div>
