@@ -1,6 +1,6 @@
 
 .navbar {
-    background-color:  rgba(216, 214, 197, 0.6);
+    background-color:  rgba(216, 214, 197, 0.5);
 }
 
 .nav-item {
@@ -150,3 +150,27 @@ h6 {
 .py-5 {
     padding-top: 0px;
 }
+
+.carbonEm {
+    background-image: url(https://i.imgur.com/C2ZOkPj.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.landingInfo {
+    background-color: rgba(216, 214, 197, 0.5);
+    color: rgb(54, 55, 74);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.landingPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
