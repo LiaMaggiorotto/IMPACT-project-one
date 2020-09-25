@@ -5,19 +5,27 @@ const methodOverride = require("method-override");
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
+
+
 // --------------------- Internal Modules
 const db = require("./models");
 const controllers = require("./controllers");
 const {authRequired} = require('./controllers/auth');
 
 
+
+
 // --------------------- Instanced Modules
 const app = express();
+
+
 
 
 // --------------------- Configuration
 const PORT = 4000;
 app.set("view engine", "ejs");
+
+
 
 // --------------------- Middleware
 app.use(express.static(path.join(__dirname, "public")));
@@ -49,7 +57,6 @@ app.use(session({
 
 // --------------------- Routes
 
-
 // view, home page
 app.get("/", function (req, res)  {
     res.render("index", { user: req.session.currentUser });
@@ -67,6 +74,7 @@ app.use("/auth", controllers.auth);
 
 // User Route
 app.use("/users", authRequired, controllers.user);
+
 
 // Product Route
 app.use("/products", controllers.product);

@@ -11,10 +11,12 @@ router.get("/register", function(req, res) {
     res.render("login", { user: req.session.currentUser });
 });
 
+
 // login form
 router.get("/login", function(req, res) {
     res.render("login", { user: req.session.currentUser });
 });
+
 
 // register post
 router.post("/register", async function(req, res) {
@@ -41,6 +43,7 @@ router.post("/register", async function(req, res) {
 });
 
 
+// login post
 router.post("/login", async function(req, res) {
     console.log("form data:", req.body);
     try {
@@ -62,13 +65,16 @@ router.post("/login", async function(req, res) {
     }
 })
 
+
 // logout delete 
 router.delete("/logout", async function(req, res) {
     await req.session.destroy();
     res.redirect("/");
 })
 
+
 module.exports = router;
+
 
 module.exports.authRequired = (req, res, next) => {
           if(!req || !req.session || (req.session.cookie['_expires'] - new Date()) < 0) {
@@ -76,6 +82,7 @@ module.exports.authRequired = (req, res, next) => {
           }
           next();
 }
+
 
 module.exports.isCorrectUser = (req, res, next) => {
     if(req && req.session && req.session.currentUser && req.session.currentUser.id === req.params.id){

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMPACT | Edit Product</title>
     <%- include('../partials/style') %>
-
 </head>
+
 <body class="solidBody">
     <%- include('../partials/nav') %>
     
@@ -16,17 +16,17 @@
     
     <div class="flex-container">
         <div class="card" style="width: 25rem;">
-        <div class="card-body" id="productItems">
-            <form action="/products/<%= product._id %>?_method=PUT" method="POST">
-                <h5>Product Title: <span class="input"><input type="text" name="title" value="<%= product.title %>"></span></h5>
-                <h5>Image Link:<span class="input"><input type="url" name="imageLink" value="<%= product.imageLink %>"></span></h5>
-                <h5>Link:<span class="input"><input type="url" name="productLink" value="<%= product.productLink %>"></span></h5>
-                <h5>Description: <span class="input"><input type="text" name="description" value="<%= product.description %>"></span></h5>
-                <input type="submit" value="Update Product" class="btn btn-primary" id="editProduct">
-            </form>
-            <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete" class="btn btn-primary" id="editProduct">
-            </form>
+            <div class="card-body" id="productItems">
+                <form action="/products/<%= product._id %>?_method=PUT" method="POST">
+                    <h5>Product Title: <span class="input"><input type="text" name="title" value="<%= product.title %>"></span></h5>
+                    <h5>Image Link:<span class="input"><input type="url" name="imageLink" value="<%= product.imageLink %>"></span></h5>
+                    <h5>Link:<span class="input"><input type="url" name="productLink" value="<%= product.productLink %>"></span></h5>
+                    <h5>Description: <span class="input"><input type="text" name="description" value="<%= product.description %>"></span></h5>
+                    <input type="submit" value="Update Product" class="btn btn-primary" id="editProduct">
+                </form>
+                <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete" class="btn btn-primary" id="editProduct">
+                </form>
             </div>
         </div>
     </div>

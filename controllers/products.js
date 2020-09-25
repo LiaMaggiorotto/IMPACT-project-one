@@ -6,10 +6,13 @@ const {authRequired} = require('./auth');
 const db = require("../models");
 
 
+
 // Cruelty Free Landing Page View Route
 router.get("/crueltyfree", (req, res) => {
     res.render("products/cruelty_free/landing", { user: req.session.currentUser });
 });
+
+
 
 // Plastic Consumption Landing Page View Route
 router.get("/plastic", (req, res) => {
@@ -17,11 +20,11 @@ router.get("/plastic", (req, res) => {
 });
 
 
+
 // Carbon Emmissions Landing Page View Route
 router.get("/carbon", (req, res) => {
     res.render("products/carbon_emissions/landing", { user: req.session.currentUser });
 });
-
 
 
 
@@ -39,6 +42,8 @@ router.get("/", async function (req, res) {
         }
 });
 
+
+
 // index view, carbon product list 
 router.get("/carbonproducts", async function (req, res) {
     try {
@@ -54,6 +59,8 @@ router.get("/carbonproducts", async function (req, res) {
         }
 });
 
+
+
 // index view, cruelty product list 
 router.get("/crueltyfreeproducts", async function (req, res) {
     try {
@@ -68,6 +75,8 @@ router.get("/crueltyfreeproducts", async function (req, res) {
         res.send( { message: "Internal Server Error" });
         }
 });
+
+
 
 // // index view, plastic product list 
 router.get("/plasticproducts", async function (req, res) {
@@ -117,7 +126,6 @@ router.post("/", function (req, res) {
 
 
 
-
 // show
 router.get("/:id", function (req, res) {
     db.Product.findById(req.params.id)
@@ -146,6 +154,8 @@ router.get("/:id/edit", function (req, res) {
     });
 });
 
+
+
 // // update <- db change
 router.put("/:id", function (req, res) {
     req.body.user = req.session.currentUser.id;
@@ -164,8 +174,6 @@ router.put("/:id", function (req, res) {
 
 
 
-
-
   // delete
 router.delete("/:id", function (req, res) {
     req.body.user = req.session.currentUser.id;
@@ -174,7 +182,6 @@ router.delete("/:id", function (req, res) {
         console.log(err);
         return res.send(err);
     }
-
     db.Product.remove({ product: deletedProduct._id }, function (
         err,
         removedProducts
@@ -187,5 +194,7 @@ router.delete("/:id", function (req, res) {
     });
     });
 });
+
+
 
 module.exports = router;
