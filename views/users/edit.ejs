@@ -9,20 +9,29 @@
 </head>
 <body class="solidBody">
 <%- include('../partials/nav') %>
-    <h1>Edit Your Profile</h1>
+<div class="profileHeader">
+    <h2>Edit Your Profile</h2>
+</div>
+
+<div class="flex-container">
+    <div class="card" style="width: 25rem;">
+    <div class="card-body" id="profileItems">
     <img src="<%= foundUser.imageLink %>" id="profilePicture" alt="User Profile Picture">
     <h2> <%= foundUser.username %> </h2>
 
     <form action="/users/<%= foundUser.id %>?_method=PUT" method="POST">
-        Profile Picture: <input type="url" name="imageLink" value="<%= foundUser.imageLink %>"> <br>
-        Username: <input type="text" name="username" value="<%= foundUser.username %>"><br>
-        Location: <input type="text" name="location" value="<%= foundUser.location %>"><br>
-        Passions: <input type="text" name="passions" value="<%= foundUser.passions %>"><br>
-        <input type="submit" value="Update Profile">
+        <h5>Profile Picture: <span class="input"><input type="url" name="imageLink" value="<%= foundUser.imageLink %>"></span> </h5>
+        <h5>Username:<span class="input"><input type="text" name="username" value="<%= foundUser.username %>"></span></h5>
+        <h5>Location:<span class="input"> <input type="text" name="location" value="<%= foundUser.location %>"></span></h5>
+        <h5>Passions:<span class="input"> <input type="text" name="passions" value="<%= foundUser.passions %>"></span></h5>
+        <input type="submit" value="Update Profile" class="btn btn-primary" id="editProduct">
     </form>
     <form action="/users/<%= foundUser.id %>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete Profile">
+        <input type="submit" value="Delete Profile" class="btn btn-primary" id="editProduct">
     </form>
+    </div>
+    </div>
+</div>
     <footer>
         <%- include('../partials/footer') %>
     </footer>

@@ -139,6 +139,11 @@ h6 {
     justify-content: center;
 }
 
+#profileItems {
+    text-align: left;
+    justify-content: left;
+}
+
 .jumbotron {
     margin-top: 40px;
 }
@@ -189,4 +194,8 @@ h6 {
 
 #editProduct {
     margin-top: 10px;
+}
+
+.input {
+    font-size: smaller;
 }
