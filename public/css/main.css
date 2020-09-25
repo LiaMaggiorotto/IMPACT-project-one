@@ -22,15 +22,19 @@ h1 {
     background-color: rgb(255, 255, 255);
 }
 
+.solidBody {
+    background-color: rgba(218, 211, 195, 0.2);
+}
+
 header {
     position: relative;
-    height: 75vh;
+    height: 80vh;
     min-height: 25rem;
     width: 100%;
     overflow: hidden;
   }
   
-  header video {
+header video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -45,12 +49,12 @@ header {
     transform: translateX(-50%) translateY(-50%);
   }
   
-  header .overlay {
-    position: relative;
+.overlay {
+    position: absolute;
     box-sizing: content-box;
     align-content: center;
     max-width: 50vh;
-    min-height: 50vh;
+    max-height: 50vh;
     z-index: 1;
   }
 
@@ -68,6 +72,7 @@ header {
     color: rgb(54, 55, 74);
     display: flex; 
     padding: 2px;
+    border: rgb(255, 255, 255) 2px solid;
 }
 
 .auth-form-container-left {
@@ -89,6 +94,52 @@ header {
 .btn-primary:hover {
     background-color: rgb(109, 108, 116);
 }
+
+#loginButton {
+    margin-top: 10px;
+}
+
+h4 {
+    text-align: center;
+}
+
+
+h6 {
+    text-decoration: underline;
+    text-align: center;
+}
+
+.text-muted {
+    text-align: center;
+}
+
+#productTitleLink {
+    color: rgb(54, 55, 74)
+}
+
+#productTitleLink:hover {
+    color: rgb(109, 108, 116);
+}
+
+#profileProduct {
+    margin: 10px;
+}
+
+#editProfile {
+    color: rgb(54, 55, 74)
+}
+
+.profileHeader {
+    color: rgb(54, 55, 74);
+    border-bottom: 2px solid rgb(109, 108, 116);
+    padding: 20px;
+    text-align: center;
+}
+
+.nameCard {
+    font-size: smaller;
+}
+
 
   
   @media (pointer: coarse) and (hover: none) {

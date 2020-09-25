@@ -7,24 +7,31 @@
     <%- include('../partials/style') %>
 
 </head>
-<body>
+<body class="solidBody">
 <%- include('../partials/nav') %>
-    <h1><%= products.category %> Products</h1>
 
-    <% for (let i=0; i < products.length; i++ ) { %>
-        <div class="productsMedia">
-            <div class="productsMediaTop">
-                <img class="productImage" src="<%= products[i].imageLink %>">
-            </div>
-            <div class="productDetail">
-                <img src="<%= products.imageLink %>"><br>
-                <%= products[i].title %><br>
-                <%= products[i].price %><br>
-                <%= products[i].description %><br>
-                <%= products[i].user %><br>
-            </div>
-        </div>
-    <% } %>
+<div class="profileHeader">
+    <h2>IMPACT <%= products.category %> </h2>
+ </div>
+
+        <div class="flex-container">
+            <% for (let i=0; i < products.length; i++) { %>
+                <div class="card" style="width: 15rem;">
+                    <a href="<%= products[i].productLink %>"><img src="<%= products[i].imageLink %>" class="card-img-top"></a>
+                    <div class="card-body">
+                        <a id="productTitleLink" href="<%= products[i].productLink %>"><h6><%= products[i].title %></h6></a>
+                        <p class="card-text"><%= products[i].description %></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            
+                    </div>
+                </div>
+                <small class="text-muted"><%= products[i].user %></small>
+                    </div>
+                    <% } %>
+                </div>
+
+
+
     <footer>
         <%- include('../partials/footer') %>
     </footer>

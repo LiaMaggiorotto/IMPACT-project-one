@@ -4,15 +4,15 @@
     
     <% if (user) { %>
         <ul class="nav-bar-login"></ul>
-        <li class="nav-item">
-            <form action="/auth/logout?_method=DELETE" method="POST">
-                <input class="btn btn-primary" type="submit" value="Logout">
-            </form>
+            <li class="nav-item">
+                <form action="/auth/logout?_method=DELETE" method="POST">
+                    <input class="btn btn-primary" type="submit" value="Logout">
+                </form>
             <% } else { %>
                 <a class="btn btn-primary" href="/auth/login">LOGIN/REGISTER</a>
             </li>
         </ul>
-            <% } %>
+    <% } %>
 
 
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">

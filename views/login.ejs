@@ -6,9 +6,10 @@
     <title>IMPACT | Login</title>
     <%- include('partials/style') %>
 </head>
+
 <%- include('partials/nav') %>
 
-<body class="login">
+<body class="solidBody">
 
 <div class="flex-container title">
     <div>
@@ -34,7 +35,7 @@
                 <div class="form-group">
                      <h5>Password</h5>
                         <input type="password" name="password" placeholder="Create Password" class="form-control">
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button type="submit" class="btn btn-primary" id="loginButton">Register</button>
                 </div>
             </form>
         </div>
@@ -51,9 +52,9 @@
                     <input type="email" name="email" placeholder="Enter Email" class="form-control">
                 </div>
                 <div class="form-group">
-                    Password
+                    <h5>Password</h5>
                     <input type="password" name="password" placeholder="Enter Password" class="form-control">
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
                 </div>
             </form>
         </div>

@@ -7,32 +7,52 @@
     <%- include('../partials/style') %>
 
 </head>
-<body class="userProfile">
+<body class="solidBody">
 <%- include('../partials/nav') %>
 
-    <img src="<%= foundUser.imageLink %>" id="profilePicture" alt="User Profile Picture">
-    <div class="profileDetails">
-        Name: <%= foundUser.username %> <br>
-        Location: <%= foundUser.location %><br>
-        Passions: <%= foundUser.passions %><br>
-        Member Since: <%= foundUser.createdAt %><br>
+<div class="profileHeader">
+   <h2><%= foundUser.username %>'s Profile </h2>
+</div>
+
+<div class="flex-container">
+    <div class="card" style="width: 25rem;">
+    <img src="<%= foundUser.imageLink %>" class="card-img-top" id="profilePicture" alt="User Profile Picture">
+    <div class="card-body" id="profileItems">
+       <h5> Name: <span class="nameCard"> <%= foundUser.username %> </span></h5>
+       <h5>Location:<span class="nameCard"> <%= foundUser.location %> </span></h5>
+        <h5>Passions:<span class="nameCard"> <%= foundUser.passions %></span></h5>
+        <h5> Member Since:<span class="nameCard"> <%= foundUser.createdAt %></span></h5>
         <% if(user) { %>
-            <a href="/users/<%= foundUser._id %>/edit">Edit Profile</a>
+            <a id="editProfile" href="/users/<%= foundUser._id %>/edit">Edit Profile</a>
         <% } %>
+        </div>
     </div>
-    <div class="userContributions">
-        <h4><%= foundUser.username %>'s Contributions</h4>
+</div>
+
+   <!-- ###################################### -->
+
+<div class="userContributions">
+    <div class="flex-container">
         <% foundUser.products.forEach(product => { %>
-            <li>
-                <a href="<%= product.productLink %>"><%= product.title %></a>
-                <form action="/products/<%= product._id %>/edit">
-                    <input type="submit" value="Edit" />
-                </form>
-                <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="Delete">
-            </li>
-       <% }) %>
-    </div>
+            <div class="card" style="width: 15rem;">
+                <a href="<%= product.productLink %>"><img src="<%= product.imageLink %>" class="card-img-top"></a>
+                <div class="card-body">
+                    <a id="productTitleLink" href="<%= product.productLink %>"><h6><%= product.title %></h6></a>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <form action="/products/<%= product._id %>/edit">
+                            <input class= "btn btn-primary" id="profileProduct" type="submit" value="Edit" />
+                        </form>
+                        <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
+                            <input class= "btn btn-primary" id="profileProduct" type="submit" value="Delete">
+                    </div>
+                </div>
+                <small class="text-muted"><%= product.category %></small>
+                </div>
+            </div>
+        <% }) %>
+</div>
+    
     <footer>
         <%- include('../partials/footer') %>
     </footer>
