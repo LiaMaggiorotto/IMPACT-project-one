@@ -1,10 +1,3 @@
-/* sanity check */
-
-h1 {
-    color: blue;
-}
-
-/* Navigation */
 
 .navbar {
     background-color:  rgba(216, 214, 197, 0.6);
@@ -24,6 +17,7 @@ h1 {
 
 .solidBody {
     background-color: rgba(218, 211, 195, 0.2);
+    color: rgb(54, 55, 74);
 }
 
 header {
@@ -140,14 +134,19 @@ h6 {
     font-size: smaller;
 }
 
+.card-body {
+    text-align: center;
+    justify-content: center;
+}
 
-  
-  @media (pointer: coarse) and (hover: none) {
-    header {
-      background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
-    }
-    header video {
-      display: none;
-    }
-  }
-  
+.jumbotron {
+    margin-top: 40px;
+}
+
+#creatorCard {
+    margin-right: 50px;
+}
+
+.py-5 {
+    padding-top: 0px;
+}
