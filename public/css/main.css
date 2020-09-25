@@ -26,8 +26,8 @@ header {
     min-height: 25rem;
     width: 100%;
     overflow: hidden;
-  }
-  
+}
+
 header video {
     position: absolute;
     top: 50%;
@@ -41,8 +41,8 @@ header video {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-  }
-  
+}
+
 .overlay {
     position: absolute;
     top: 50%;
@@ -54,15 +54,31 @@ header video {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-  }
+}
 
-
-.flex-container {
-    display: flex;
+.body {
+    background: rgba(114, 164, 160, 0.7);
+    height: 75vh;
+    position: relative;
     justify-content: center;
     align-content: center;
-    margin-top: 60px;
-    margin-bottom: 30px;
+}
+
+.flex-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+}
+
+.flex-container input[type='submit'] {
+    justify-content: center;
+    align-content: center;
+}
+
+.deleteProfBtn {
+    display: inline-flex;
 }
 
 .loginBox {
@@ -219,4 +235,33 @@ h6 {
     position: static;
     bottom: 0;
     left: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+#copyright {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+.navBtn {
+    height: 40px;
+    margin-left: 10px;
+}
+
+#navBtns-container {
+    display: flex;
+    min-width: 150px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-bar-login {
+    margin-top: -14px;
 }
