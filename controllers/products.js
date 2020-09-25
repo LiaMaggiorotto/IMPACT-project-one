@@ -5,6 +5,7 @@ const {authRequired} = require('./auth');
 
 const db = require("../models");
 
+const categories = ["Plastic Consumption", "Cruelty Free", "Carbon Emissions"];
 
 
 // Cruelty Free Landing Page View Route
@@ -97,7 +98,6 @@ router.get("/plasticproducts", async function (req, res) {
 
 // new
 router.get("/new", authRequired, function (req, res) {
-    const categories = ["Plastic Consumption", "Cruelty Free", "Carbon Emissions"];
     const context = {
         categories: categories,
     }
@@ -129,14 +129,21 @@ router.post("/", function (req, res) {
 // show
 router.get("/:id", function (req, res) {
     db.Product.findById(req.params.id)
-    .populate("products")
+    .populate('user')
+    .populate('category')
     .exec(function (err, foundProduct) {
         if (err) {
         console.log(err);
         return res.send(err);
         }
-        const context = { product: foundProduct };
-        res.render("users/show", context);
+        db.Product.find({}).exec((error, allProducts) => {
+            if(error) return res.send(error);
+            const context = { 
+                product: foundProduct, 
+                products: allProducts,
+            };
+            res.render("products/show", context);
+        })
     });
 });
 
@@ -149,7 +156,10 @@ router.get("/:id/edit", function (req, res) {
         console.log(err);
         return res.send(err);
     }
-    const context = { product: foundProduct };
+    const context = { 
+        product: foundProduct,
+        categories: categories,
+     };
     res.render("products/edit", context);
     });
 });
