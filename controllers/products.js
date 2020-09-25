@@ -129,14 +129,21 @@ router.post("/", function (req, res) {
 // show
 router.get("/:id", function (req, res) {
     db.Product.findById(req.params.id)
-    .populate("products")
+    .populate('user')
+    .populate('category')
     .exec(function (err, foundProduct) {
         if (err) {
         console.log(err);
         return res.send(err);
         }
-        const context = { product: foundProduct };
-        res.render("users/show", context);
+        db.Product.find({}).exec((error, allProducts) => {
+            if(error) return res.send(error);
+            const context = { 
+                product: foundProduct, 
+                products: allProducts,
+            };
+            res.render("products/show", context);
+        })
     });
 });
 
