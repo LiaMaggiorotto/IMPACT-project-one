@@ -22,6 +22,10 @@ h1 {
     background-color: rgb(255, 255, 255);
 }
 
+.solidBody {
+    background-color: rgba(218, 211, 195, 0.2);
+}
+
 header {
     position: relative;
     height: 80vh;
@@ -120,6 +124,23 @@ h6 {
 #profileProduct {
     margin: 10px;
 }
+
+#editProfile {
+    color: rgb(54, 55, 74)
+}
+
+.profileHeader {
+    color: rgb(54, 55, 74);
+    border-bottom: 2px solid rgb(109, 108, 116);
+    padding: 20px;
+    text-align: center;
+}
+
+.nameCard {
+    font-size: smaller;
+}
+
+
   
   @media (pointer: coarse) and (hover: none) {
     header {
