@@ -209,7 +209,14 @@ h6 {
     align-items: baseline;
 }
 
+.home {
+    background-color: rgb(9, 94, 82);
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
+
 .footer {
     position: static;
     bottom: 0;
     left: 0;
+
