@@ -5,6 +5,7 @@ const {authRequired} = require('./auth');
 
 const db = require("../models");
 
+const categories = ["Plastic Consumption", "Cruelty Free", "Carbon Emissions"];
 
 
 // Cruelty Free Landing Page View Route
@@ -97,7 +98,6 @@ router.get("/plasticproducts", async function (req, res) {
 
 // new
 router.get("/new", authRequired, function (req, res) {
-    const categories = ["Plastic Consumption", "Cruelty Free", "Carbon Emissions"];
     const context = {
         categories: categories,
     }
@@ -149,7 +149,10 @@ router.get("/:id/edit", function (req, res) {
         console.log(err);
         return res.send(err);
     }
-    const context = { product: foundProduct };
+    const context = { 
+        product: foundProduct,
+        categories: categories,
+     };
     res.render("products/edit", context);
     });
 });
