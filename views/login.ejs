@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPACT | Login</title>
+    <%- include('partials/style') %>
+</head>
+
+<body class="solidBody">
+<%- include('partials/nav') %>
+
+
+<div class="flex-container title">
+    <div>
+        <img src="https://i.imgur.com/Kz714P5l.png" class="login-heading">
+    </div>
+</div>
+
+<div class="flex-container">
+    <div class = "loginBox">
+        <div class="auth-form-container-left">
+            <form action="/auth/register" method="POST">
+                <div class="form-group">
+                    <h3>Register</h3>
+                </div>
+                <div class="form-group">
+                    <h5>Username</h5>
+                        <input type="text" name="username" placeholder="Enter Username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <h5>Email</h5>
+                        <input type="email" name="email" placeholder="Enter Email" class="form-control">
+                </div>
+                <div class="form-group">
+                     <h5>Password</h5>
+                        <input type="password" name="password" placeholder="Create Password" class="form-control">
+                            <button type="submit" class="btn btn-primary" id="loginButton">Register</button>
+                </div>
+            </form>
+        </div>
+        
+        
+        
+        <div class="auth-form-container-right">
+            <form action="/auth/login" method="POST">
+                <div class="form-group">
+                    <h3>Login</h3>
+                </div>
+                <div class="form-group">
+                    <h5>Email</h5>
+                    <input type="email" name="email" placeholder="Enter Email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <h5>Password</h5>
+                    <input type="password" name="password" placeholder="Enter Password" class="form-control">
+                    <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <%- include('partials/footer') %>
+    </footer>
+</body>
+</html>

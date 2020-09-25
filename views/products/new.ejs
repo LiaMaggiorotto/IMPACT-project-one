@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Product</title>
+    <%- include('../partials/style') %>
+</head>
+
+<body class="solidBody">
+    <%- include('../partials/nav') %>
+       
+    <div class="profileHeader">
+        <h2>Share a new Product</h2>
+    </div>
+
+    <div class="flex-container">
+        <div class="card" style="width: 25rem;">
+            <div class="card-body" id="profileItems">
+                <form action="/products" method="POST">
+                    <h5>Product Title: <span class="input"><input type="text" name="title" placeholder="title"></span></h5>
+                    <h5>Price:<span class="input"><input type="text" name="price" placeholder="0.00"></span></h5>
+                    <h5>Image Link: <span class="input"><input type="url" name="imageLink" placeholder="http://"></span></h5>
+                    <h5>Product Link:<span class="input"><input type="url" name="productLink" placeholder="http://"></span></h5>
+                    <h5>Description: <span class="input"><input type="text" name="description" placeholder="sell it!"></span></h5>
+                    <h5>Category: <span class="input"><select name = "category">
+                        <% categories.forEach((category) => { %>
+                            <% console.log(category) %>
+                                <option><%=category%></option>
+                        <%})%>
+                    </select></span></h5>
+                    <input type="submit" value="Submit New Product" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

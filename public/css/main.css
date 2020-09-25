@@ -1,0 +1,267 @@
+
+.navbar {
+    background-color:  rgba(255, 255, 255, 0.7);
+}
+
+.nav-item {
+    list-style: none
+}
+
+.navbar-toggler-icon {
+    background-color: rgb(255, 255, 255);
+}
+
+.navbar-toggler {
+    background-color: rgb(255, 255, 255);
+}
+
+.solidBody {
+    background-color: rgba(218, 211, 195, 0.2);
+    color: rgb(54, 55, 74);
+}
+
+header {
+    position: relative;
+    height: 80vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+header video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 150vh;
+    min-height: 150vh;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.body {
+    background: rgba(114, 164, 160, 0.7);
+    height: 75vh;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+}
+
+.flex-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+}
+
+.flex-container input[type='submit'] {
+    justify-content: center;
+    align-content: center;
+}
+
+.deleteProfBtn {
+    display: inline-flex;
+}
+
+.loginBox {
+    background-color: rgba(216, 214, 197, 0.6);
+    color: rgb(54, 55, 74);
+    display: flex; 
+    padding: 2px;
+    border: rgb(255, 255, 255) 2px solid;
+}
+
+.auth-form-container-left {
+    padding: 25px;
+    color: rgb(54, 55, 74);
+}
+
+.auth-form-container-right {
+    padding: 25px;
+    color: rgb(54, 55, 74);
+}
+
+.btn-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(54, 55, 74);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: rgb(109, 108, 116);
+}
+
+#loginButton {
+    margin-top: 10px;
+}
+
+h4 {
+    text-align: center;
+}
+
+
+h6 {
+    text-decoration: underline;
+    text-align: center;
+}
+
+.text-muted {
+    text-align: center;
+}
+
+#productTitleLink {
+    color: rgb(54, 55, 74)
+}
+
+#productTitleLink:hover {
+    color: rgb(109, 108, 116);
+}
+
+#profileProduct {
+    margin: 10px;
+}
+
+#editProfile {
+    color: rgb(54, 55, 74)
+}
+
+.profileHeader {
+    color: rgb(54, 55, 74);
+    border-bottom: 2px solid rgb(109, 108, 116);
+    padding: 20px;
+    text-align: center;
+}
+
+.nameCard {
+    font-size: smaller;
+}
+
+.card-body {
+    text-align: center;
+    justify-content: center;
+}
+
+#profileItems {
+    text-align: left;
+    justify-content: left;
+}
+
+.jumbotron {
+    margin-top: 40px;
+}
+
+#creatorCard {
+    margin-right: 50px;
+}
+
+.py-5 {
+    padding-top: 0px;
+}
+
+.carbonEm {
+    background-image: url(https://i.imgur.com/C2ZOkPj.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.crueltyFree {
+    background-image: url(https://i.imgur.com/6fDQWJP.jpg?1);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.plasticCon {
+    background-image: url(https://i.imgur.com/KaEHr7w.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.landingInfo {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: rgb(54, 55, 74);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.landingPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#editProduct {
+    margin-top: 10px;
+}
+
+.input {
+    font-size: smaller;
+}
+
+.finalButton {
+    justify-content: center;
+    align-items: baseline;
+}
+
+.home {
+    background-color: rgb(9, 94, 82);
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
+
+.footer {
+    position: static;
+    bottom: 0;
+    left: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+#copyright {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+.navBtn {
+    height: 40px;
+    margin-left: 10px;
+}
+
+#navBtns-container {
+    display: flex;
+    min-width: 150px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-bar-login {
+    margin-top: -14px;
+}

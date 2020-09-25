@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= products.category %> Products</title>
+    <%- include('../partials/style') %>
+</head>
+
+<body class="solidBody">
+    <%- include('../partials/nav') %>
+
+        <div class="profileHeader">
+            <h2>IMPACT <%= products.category %> </h2>
+        </div>
+
+        <div class="flex-container">
+            <% for (let i=0; i < products.length; i++) { %>
+                <div class="card" style="width: 15rem;">
+                    <a href="<%= products[i].productLink %>"><img src="<%= products[i].imageLink %>" class="card-img-top"></a>
+                        <div class="card-body">
+                            <a id="productTitleLink" href="<%= products[i].productLink %>"><h6><%= products[i].title %></h6></a>
+                            <p class="card-text">$<%= products[i].price %></p>
+                            <p class="card-text"><%= products[i].description %></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                            </div>
+                        </div>
+                    <small class="text-muted"><%= products[i].user.username %></small>
+                </div>
+            <% } %>
+        </div>
+
+
+    <footer>
+        <%- include('../partials/footer') %>
+    </footer>
+
+</body>
+</html>

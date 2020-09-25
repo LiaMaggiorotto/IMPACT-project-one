@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPACT | Edit Profile</title>
+    <%- include('../partials/style') %>
+</head>
+
+<body class="solidBody">
+    <%- include('../partials/nav') %>
+
+    <div class="profileHeader">
+        <h2>Edit Your Profile</h2>
+    </div>
+
+    <section class="body">
+        <div class="flex-container">
+            <div class="card" style="width: 25rem;">
+                <div class="card-body" id="profileItems">
+                    <% if(foundUser.imageLink) { %>
+                        <img src="<%= foundUser.imageLink %>" id="profilePicture" alt="User Profile Picture" />
+                    <% } %> 
+                    <h2 class='username-header'><%=foundUser.username%></h2>
+        
+                    <form action="/users/<%= foundUser.id %>?_method=PUT" method="POST">
+                        <h5>Profile Picture: <span class="input"><input type="url" name="imageLink" value="<%= foundUser.imageLink %>"></span> </h5>
+                        <h5>Username: <span class="input"><input type="text" name="username" value="<%= foundUser.username %>"></span></h5>
+                        <h5>Location: <span class="input"> <input type="text" name="location" value="<%= foundUser.location %>"></span></h5>
+                        <h5>Passions: <span class="input"> <input type="text" name="passions" value="<%= foundUser.passions %>"></span></h5>
+                        <input type="submit" value="Update Profile" class="btn btn-primary" id="editProduct">
+                    </form>
+                    <form action="/users/<%= foundUser.id %>?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete Profile" class="btn btn-primary deleteProfBtn" id="editProduct">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <%- include('../partials/footer') %>
+    </section> 
+</body>
+</html>

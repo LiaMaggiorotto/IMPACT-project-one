@@ -5,21 +5,30 @@ const methodOverride = require("method-override");
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
+
+
 // --------------------- Internal Modules
 const db = require("./models");
 const controllers = require("./controllers");
+const {authRequired} = require('./controllers/auth');
+
+
 
 
 // --------------------- Instanced Modules
 const app = express();
 
 
+
+
 // --------------------- Configuration
 const PORT = 4000;
 app.set("view engine", "ejs");
 
+
+
 // --------------------- Middleware
-// app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use((req, res, next) => {
@@ -38,19 +47,34 @@ app.use(session({
       maxAge: 1000 * 60 * 60 * 24 * 7 * 2 
     }
   }));
-  
 
+  //https://stackoverflow.com/questions/37183766/how-to-get-the-session-value-in-ejs
+  app.use(function(req, res, next) {
+    res.locals.user = req.session.currentUser;
+    next();
+  });
+ 
 
 // --------------------- Routes
 
-
-// view
-app.get("/home", function (req, res)  {
-    res.render("index");
+// view, home page
+app.get("/", function (req, res)  {
+    res.render("index", { user: req.session.currentUser });
 });
 
+// About Routes
+
+app.get("/about", (req, res) => {
+  res.render("about", { user: req.session.currentUser });
+  });
+
+// Auth Routes
+
+app.use("/auth", controllers.auth);
+
 // User Route
-app.use("/user", controllers.user);
+app.use("/users", authRequired, controllers.user);
+
 
 // Product Route
 app.use("/products", controllers.product);
