@@ -25,18 +25,17 @@
                 <h5>Username:<span class="input"><input type="text" name="username" value="<%= foundUser.username %>"></span></h5>
                 <h5>Location:<span class="input"> <input type="text" name="location" value="<%= foundUser.location %>"></span></h5>
                 <h5>Passions:<span class="input"> <input type="text" name="passions" value="<%= foundUser.passions %>"></span></h5>
-                <input type="submit" value="Update Profile" class="btn btn-primary" id="editProduct">
-            </form>
-            <form action="/users/<%= foundUser.id %>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete Profile" class="btn btn-primary" id="editProduct">
-            </form>
+                <div class="row">
+                    <div class="col text-center">
+                        <input type="submit" value="Update Profile" class="btn btn-primary my-2" id="editProduct">
+                        </form>
+                        <form action="/users/<%= foundUser.id %>?_method=DELETE" method="POST">
+                            <input type="submit" value="Delete Profile" class="btn btn-primary my-2" id="editProduct">
+                        </form>
+                    </div>
+                </div>
         </div>
     </div>
-</div>
 
-    <footer>
-        <%- include('../partials/footer') %>
-    </footer>
-    
 </body>
 </html>
