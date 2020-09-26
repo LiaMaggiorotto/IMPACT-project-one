@@ -219,3 +219,32 @@ h6 {
     bottom: 0;
     left: 0;
 }
+
+h2 {
+    text-align: center;
+}
+
+#copyright {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+.navBtn {
+    height: 40px;
+    margin-left: 10px;
+}
+
+#navBtns-container {
+    display: flex;
+    min-width: 150px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-bar-login {
+    margin-top: -14px;
+}
