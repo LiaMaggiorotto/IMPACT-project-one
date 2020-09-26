@@ -22,6 +22,14 @@
                     <h5>Image Link:<span class="input"><input type="url" name="imageLink" value="<%= product.imageLink %>"></span></h5>
                     <h5>Link:<span class="input"><input type="url" name="productLink" value="<%= product.productLink %>"></span></h5>
                     <h5>Description: <span class="input"><input type="text" name="description" value="<%= product.description %>"></span></h5>
+                    <h5>Category: <span class="input"><select name = "category">
+                        <% categories.forEach((category) => { %>
+                            <% console.log(category) %>
+                                <option
+                                <% if(product.category === category){ %>selected<% } %> 
+                                ><%=category%></option>
+                        <%})%>
+                    </select></span></h5>
                     <input type="submit" value="Update Product" class="btn btn-primary" id="editProduct">
                 </form>
                 <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
