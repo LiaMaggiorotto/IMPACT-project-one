@@ -16,8 +16,8 @@
 
 <div class="flex-container">
     <div class="card" style="width: 25rem;">
-        <div class="card-body" id="profileItems">
-            <img src="<%= foundUser.imageLink %>" id="profilePicture" alt="User Profile Picture">
+        <img src="<%= foundUser.imageLink %>" class="card-img-top" id="profilePicture" alt="User Profile Picture">
+            <div class="card-body" id="profileItems">
             <h2> <%= foundUser.username %> </h2>
 
             <form action="/users/<%= foundUser.id %>?_method=PUT" method="POST">
