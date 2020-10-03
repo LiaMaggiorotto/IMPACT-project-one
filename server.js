@@ -22,7 +22,8 @@ const app = express();
 
 
 // --------------------- Configuration
-const PORT = 4000;
+require("dotenv").config();
+const PORT = process.env.PORT;
 app.set("view engine", "ejs");
 
 
@@ -39,9 +40,9 @@ app.use((req, res, next) => {
 app.use(session({
   resave: false,
   saveUninitialized: false, 
-  secret: "Trassshhh", 
+  secret: process.env.SECRET, 
   store: new MongoStore({
-    url: "mongodb://localhost:27017/impact-sessions",
+    url: process.env.MONGODB_URI,
     }),
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7 * 2 
